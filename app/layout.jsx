@@ -6,6 +6,7 @@ import '../src/sections-refresh.css';
 import '../src/seo-pages.css';
 import '../src/services-page.css';
 import '../src/reference-banners.css';
+import '../src/articles.css';
 import Script from 'next/script';
 
 export const metadata = {
@@ -13,7 +14,6 @@ export const metadata = {
   applicationName: 'Nixoware',
   title: { default: 'NIXOWARE | Website, Mobile App & Maintenance Services', template: '%s | NIXOWARE' },
   description: 'NIXOWARE designs, develops, and maintains responsive websites, mobile apps, e-commerce stores, and custom web applications for startups and growing businesses.',
-  keywords: ['IT services company in India', 'website development company in India', 'mobile app development company in India', 'website maintenance services', 'ecommerce development company', 'custom web application development', 'business website development', 'Android app development', 'iOS app development', 'UI UX design services', 'responsive website design', 'SEO friendly website development', 'Nixoware'],
   authors: [{ name: 'Nixoware', url: 'https://nixoware.com' }],
   creator: 'Nixoware',
   publisher: 'Nixoware',
@@ -42,20 +42,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return <html lang="en">
-    <head>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWK5CJKD5N"></script>
-      <script dangerouslySetInnerHTML={{ __html: `
+    <body>{children}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-JWK5CJKD5N" strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-JWK5CJKD5N');
-      ` }}></script>
+      ` }} />
       <Script
         src="https://analytics.ahrefs.com/analytics.js"
         data-key="BTzW/IDMIe2lnAaC9mUgSg"
-        strategy="beforeInteractive"
+        strategy="lazyOnload"
       />
-    </head>
-    <body>{children}</body>
+    </body>
   </html>;
 }

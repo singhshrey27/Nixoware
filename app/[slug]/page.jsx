@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import SeoPage from '../../components/SeoPage';
-import { seoKeywords, seoPages, seoSlugs } from '../../lib/seo-pages';
+import { seoPages, seoSlugs } from '../../lib/seo-pages';
 import { pageBanners } from '../../lib/page-banners';
 
 export function generateStaticParams() { return seoSlugs.map(slug => ({ slug })); }
@@ -14,7 +14,6 @@ export async function generateMetadata({ params }) {
   return {
     title: page.title,
     description: page.description,
-    keywords: seoKeywords[slug],
     alternates: { canonical: `/${slug}` },
     openGraph: { title: `${page.title} | Nixoware`, description: page.description, url: `/${slug}`, type: 'website', siteName: 'Nixoware', images },
     twitter: { card: 'summary_large_image', title: `${page.title} | Nixoware`, description: page.description, images: [banner.src] }

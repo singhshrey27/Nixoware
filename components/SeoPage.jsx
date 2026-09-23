@@ -29,7 +29,7 @@ export default function SeoPage({ page, slug }) {
   ] };
 
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
     <header className="site-header seo-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <Arrow/></a></header>
     <main className="seo-main">
       <section className="seo-hero reference-hero"><div className="seo-hero-inner"><h1>{banner.lines.map((line, index) => <span key={line} className={index === banner.lines.length - 1 ? 'banner-accent' : undefined}>{line}</span>)}</h1><p>{banner.description}</p><div className="seo-actions"><a className="button primary" href={slug === 'contact' ? 'mailto:nixoware@gmail.com' : '/contact'}>{slug === 'contact' ? 'Email our team' : 'Discuss your project'} <Arrow/></a><a href={page.cards ? '#page-offerings' : '/services'}>{page.cards ? 'Explore this page' : 'Explore our services'} <Arrow/></a></div></div><div className="page-hero-visual"><Image src={banner.src} alt={banner.alt} fill priority sizes="(max-width: 980px) 100vw, 56vw"/></div></section>

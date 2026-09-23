@@ -64,6 +64,7 @@ export default function Home() {
         telephone: '+91-9650429575',
         email: 'nixoware@gmail.com',
         contactPoint: { '@type': 'ContactPoint', telephone: '+91-9650429575', contactType: 'sales', availableLanguage: ['English', 'Hindi'] },
+        areaServed: { '@type': 'Country', name: 'India' },
         knowsAbout: ['Website development', 'Mobile app development', 'Website maintenance', 'E-commerce development', 'Custom web applications', 'UI/UX design']
       },
       {
@@ -87,7 +88,7 @@ export default function Home() {
     ]
   };
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
     <header className="site-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <Arrow/></a></header>
     <main>
       <section className="hero" id="banner">
