@@ -18,12 +18,16 @@ export const metadata = {
   creator: 'Nixoware',
   publisher: 'Nixoware',
   category: 'technology',
+  alternates: { languages: { 'en-IN': '/' } },
+  verification: { google: '804feecc45c29f8d' },
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     title: 'Website, Mobile App & Maintenance Services | Nixoware',
     description: 'Build and maintain high-quality websites, mobile apps, e-commerce stores, and custom web applications with Nixoware.',
     url: '/',
     siteName: 'Nixoware',
     locale: 'en_IN',
+    countryName: 'India',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Nixoware website, mobile app, and maintenance services' }]
   },

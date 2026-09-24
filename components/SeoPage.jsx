@@ -23,9 +23,9 @@ export default function SeoPage({ page, slug }) {
     ['Can Nixoware support the product after launch?', 'Yes. Support can include monitoring, maintenance, content or feature updates, performance improvements, and a prioritized roadmap for future releases.']
   ] : [];
   const schema = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebPage', name: page.title, description: page.description, url: canonical, isPartOf: { '@type': 'WebSite', name: 'Nixoware', url: 'https://nixoware.com/' }, about: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' } },
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: page.title, description: page.description, url: canonical, inLanguage: 'en-IN', primaryImageOfPage: { '@type': 'ImageObject', url: `https://nixoware.com${banner.src}` }, isPartOf: { '@id': 'https://nixoware.com/#website' }, about: { '@id': 'https://nixoware.com/#organization' } },
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: page.label, item: canonical }] },
-    ...(isService ? [{ '@type': 'Service', name: page.title, description: page.description, url: canonical, provider: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' }, areaServed: { '@type': 'Country', name: 'India' } }, { '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }] : [])
+    ...(isService ? [{ '@type': 'Service', name: page.title, serviceType: page.label, description: page.description, url: canonical, provider: { '@id': 'https://nixoware.com/#organization' }, areaServed: { '@type': 'Country', name: 'India' } }, { '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }] : [])
   ] };
 
   return <>

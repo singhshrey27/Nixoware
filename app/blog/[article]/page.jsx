@@ -12,11 +12,17 @@ export async function generateMetadata({ params }) {
   const article = articles[slug];
   if (!article) return {};
   const url = `/blog/${slug}`;
+  const image = {
+    url: '/opengraph-image',
+    width: 1200,
+    height: 630,
+    alt: `${article.title} — Nixoware Insights`,
+  };
   return {
     title: article.title,
     description: article.description,
-    alternates: { canonical: url },
-    openGraph: { title: article.title, description: article.description, url, type: 'article', publishedTime: article.published, authors: ['Nixoware'] },
+    alternates: { canonical: url, languages: { 'en-IN': url } },
+    openGraph: { title: article.title, description: article.description, url, type: 'article', siteName: 'Nixoware', locale: 'en_IN', publishedTime: article.published, modifiedTime: article.published, authors: ['Nixoware'], images: [image] },
     twitter: { card: 'summary_large_image', title: article.title, description: article.description, images: ['/opengraph-image'] }
   };
 }
