@@ -5,12 +5,12 @@ import { ContactForm, MobileNavigation } from '../components/Interactive';
 export const metadata = { alternates: { canonical: '/', languages: { 'en-IN': '/' } } };
 
 const capabilities = [
-  { number: '01', title: 'Website Development', text: 'Fast, responsive business websites designed to turn visitors into customers.', icon: 'bars' },
-  { number: '02', title: 'Mobile App Development', text: 'Reliable Android, iOS, and cross-platform apps built around your users.', icon: 'cube' },
-  { number: '03', title: 'Website Maintenance', text: 'Ongoing updates, security monitoring, backups, and performance improvements.', icon: 'spark' },
-  { number: '04', title: 'E-commerce Development', text: 'Secure online stores with smooth product, payment, and order experiences.', icon: 'cloud' },
-  { number: '05', title: 'Custom Web Applications', text: 'Purpose-built portals, dashboards, and business systems that simplify work.', icon: 'cube' },
-  { number: '06', title: 'UI/UX Design', text: 'Clear, accessible interfaces that make websites and applications easier to use.', icon: 'spark' },
+  { number: '01', title: 'Website Development', text: 'Fast, responsive business websites designed to turn visitors into customers.', href: '/web-development', icon: 'bars' },
+  { number: '02', title: 'Mobile App Development', text: 'Reliable Android, iOS, and cross-platform apps built around your users.', href: '/mobile-app-development', icon: 'cube' },
+  { number: '03', title: 'Website Maintenance', text: 'Ongoing updates, security monitoring, backups, and performance improvements.', href: '/website-maintenance', icon: 'spark' },
+  { number: '04', title: 'E-commerce Development', text: 'Secure online stores with smooth product, payment, and order experiences.', href: '/ecommerce-development', icon: 'cloud' },
+  { number: '05', title: 'Custom Web Applications', text: 'Purpose-built portals, dashboards, and business systems that simplify work.', href: '/software-development', icon: 'cube' },
+  { number: '06', title: 'UI/UX Design', text: 'Clear, accessible interfaces that make websites and applications easier to use.', href: '/ui-ux-design', icon: 'spark' },
 ];
 const serviceDetails = {
   '01': 'Business websites, landing pages, redesigns, CMS development, and search-friendly implementation.',
@@ -54,6 +54,16 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'ProfessionalService',
+        '@id': 'https://nixoware.com/#professional-service',
+        name: 'Nixoware Web and Mobile Development',
+        url: 'https://nixoware.com/',
+        provider: { '@id': 'https://nixoware.com/#organization' },
+        areaServed: { '@type': 'Country', name: 'India' },
+        serviceType: ['Web development', 'Mobile app development', 'E-commerce development', 'Custom web development', 'Website maintenance'],
+        availableLanguage: ['English', 'Hindi']
+      },
+      {
         '@type': 'Organization',
         '@id': 'https://nixoware.com/#organization',
         name: 'Nixoware',
@@ -65,7 +75,8 @@ export default function Home() {
         email: 'nixoware@gmail.com',
         contactPoint: { '@type': 'ContactPoint', telephone: '+91-9650429575', contactType: 'sales', availableLanguage: ['English', 'Hindi'] },
         areaServed: { '@type': 'Country', name: 'India' },
-        knowsAbout: ['Website development', 'Mobile app development', 'Website maintenance', 'E-commerce development', 'Custom web applications', 'UI/UX design']
+        knowsAbout: ['Website development', 'Mobile app development', 'Website maintenance', 'E-commerce development', 'Custom web applications', 'UI/UX design'],
+        areaServed: { '@type': 'Country', name: 'India' }
       },
       {
         '@type': 'WebSite',
@@ -84,7 +95,12 @@ export default function Home() {
         about: { '@id': 'https://nixoware.com/#organization' },
         description: 'Nixoware builds and maintains responsive websites, mobile apps, e-commerce stores, and custom web applications for growing businesses.',
         inLanguage: 'en-IN'
-      }
+      },
+      { '@type': 'FAQPage', mainEntity: [
+        { '@type': 'Question', name: 'What does a web development company do?', acceptedAnswer: { '@type': 'Answer', text: 'A web development company plans, designs, builds, tests, launches, and maintains websites or web applications around a business goal and its users.' } },
+        { '@type': 'Question', name: 'How much does website development cost in India?', acceptedAnswer: { '@type': 'Answer', text: 'Website development cost depends on the number of pages, design needs, content, integrations, functionality, hosting, and ongoing support. Nixoware recommends a scope and estimate after understanding those requirements.' } },
+        { '@type': 'Question', name: 'Can Nixoware maintain a website after launch?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Website maintenance can include software updates, security checks, backups, uptime and form monitoring, content changes, performance improvements, and ongoing feature work.' } }
+      ] }
     ]
   };
   return <>
@@ -92,15 +108,21 @@ export default function Home() {
     <header className="site-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <Arrow/></a></header>
     <main>
       <section className="hero" id="banner">
-        <div className="hero-copy"><h1>Websites and apps.<br/><em>Built for growth.</em></h1><p>We design, develop, and maintain fast, secure websites and mobile applications for startups and growing businesses.</p><div className="hero-actions"><a className="button coral" href="/contact">Start your project <Arrow/></a><a className="hero-secondary" href="#services">Explore our services <Arrow/></a></div></div>
+        <div className="hero-copy"><h1>Web & mobile development<br/><em>for growing businesses.</em></h1><p>Nixoware designs, develops, and maintains high-performance websites, mobile apps, e-commerce platforms, and custom web applications for businesses across India.</p><div className="hero-actions"><a className="button coral" href="/contact">Start your project <Arrow/></a><a className="hero-secondary" href="#services">Explore our services <Arrow/></a></div></div>
         <div className="hero-media web-product-media"><Image src="/web-development-hero.png" alt="Illustrative website, mobile application, and dashboard designs displayed on digital devices" fill priority sizes="(max-width: 980px) 100vw, 58vw"/></div>
       </section>
 
       <ClientShowcase/>
 
+      <section className="homepage-proof light-section" aria-labelledby="industries-title">
+        <div className="homepage-proof-heading"><p className="section-label">WHO WE SUPPORT</p><h2 id="industries-title">Digital products for teams with meaningful work to do.</h2><p>We work with growing organizations across India that need a clearer customer experience, a more capable digital channel, or a simpler way to run their operations.</p></div>
+        <div className="homepage-proof-grid"><article><span>01</span><h3>Healthcare</h3><p>Hospital and healthcare websites that make services, doctors, appointments, and patient information easier to find.</p></article><article><span>02</span><h3>Education and events</h3><p>Content-rich websites that help institutions, forums, and event teams communicate with their audiences.</p></article><article><span>03</span><h3>Professional and product services</h3><p>Service-led websites, portals, and workflows that explain expertise and turn interest into action.</p></article></div>
+        <div className="homepage-technologies"><p className="section-label">OUR TECHNOLOGY APPROACH</p><p>We choose technology around the product, team, budget, and future ownership. Our work can include Next.js and React websites, Node.js APIs, content management systems, payment and CRM integrations, analytics, cloud hosting, and maintainable responsive interfaces.</p><a href="/software-development" className="text-link">Explore custom software development <Arrow/></a></div>
+      </section>
+
       <section className="capabilities services-refresh light-section" id="services">
         <div className="section-lead"><p className="section-label">OUR IT SERVICES</p><h2>Everything you need to<br/><span>build and grow online.</span></h2><p>From your first idea to launch and long-term support, one experienced team handles design, development, and maintenance.</p></div>
-        <div className="capability-list">{capabilities.map(item => <article key={item.title}><span className="item-number">{item.number}</span><CapabilityIcon type={item.icon}/><h3>{item.title}</h3><p>{item.text}</p><details className="service-detail"><summary>Explore capabilities</summary><p>{serviceDetails[item.number]}</p></details><a href="#contact" aria-label={`Discuss ${item.title}`}>Discuss this service <Arrow/></a></article>)}</div>
+        <div className="capability-list">{capabilities.map(item => <article key={item.title}><span className="item-number">{item.number}</span><CapabilityIcon type={item.icon}/><h3>{item.title}</h3><p>{item.text}</p><details className="service-detail"><summary>Explore capabilities</summary><p>{serviceDetails[item.number]}</p></details><a href={item.href} aria-label={`Explore ${item.title}`}>Explore service <Arrow/></a></article>)}</div>
         <div className="services-cta"><strong>Have a project in mind?</strong><span>Tell us what you want to build, improve, or maintain.</span><a className="button primary" href="/contact">Get a project quote <Arrow/></a></div>
       </section>
 
@@ -125,6 +147,8 @@ export default function Home() {
         <div className="section-lead"><h2>A dependable technology<br/>partner for your business.</h2><span className="short-rule"></span><p>Clear communication, thoughtful engineering, and reliable support from the first conversation onward.</p></div>
         <div className="principle-list"><article><span>01</span><h3>Built around your goals</h3><p>Every recommendation starts with your customers, operations, and business priorities.</p></article><article><span>02</span><h3>Clear and transparent</h3><p>You always know what we are building, why it matters, and what happens next.</p></article><article><span>03</span><h3>Support after launch</h3><p>We stay available for maintenance, improvements, troubleshooting, and future growth.</p></article></div>
       </section>
+
+      <section className="homepage-faq light-section" aria-labelledby="homepage-faq-title"><div className="homepage-faq-heading"><p className="section-label">COMMON QUESTIONS</p><h2 id="homepage-faq-title">A practical start for your next digital project.</h2></div><div className="homepage-faq-list"><details><summary>What services does Nixoware provide?</summary><p>We provide website development, mobile app development, website maintenance, e-commerce development, custom web applications, and UI/UX design.</p></details><details><summary>Who does Nixoware work with?</summary><p>We support startups, small businesses, growing companies, healthcare organizations, education and event teams, and professional service organizations across India.</p></details><details><summary>Can you improve an existing website?</summary><p>Yes. We can audit and improve content, user experience, accessibility, speed, security, forms, integrations, and ongoing maintenance without assuming a complete rebuild is necessary.</p></details></div></section>
 
       <section className="contact-connect" id="contact" aria-labelledby="contact-title"><div className="connect-copy"><h2 id="contact-title">Let’s build something<br/>valuable together.</h2><p>Whether you need a new website, a mobile app, or reliable maintenance for an existing platform, tell us what you want to achieve.</p><ul className="connect-benefits"><li>Discuss your goals with our team</li><li>Receive a practical technical recommendation</li><li>Define scope, timeline, and the next step</li></ul><div className="connect-details"><a href="tel:+919650429575"><span aria-hidden="true">↗</span><div><small>Call our team</small>+91 96504 29575</div></a><a href="mailto:nixoware@gmail.com"><span aria-hidden="true">@</span><div><small>Email us</small>nixoware@gmail.com</div></a></div></div><ContactForm/></section>
     </main>

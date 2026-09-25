@@ -7,13 +7,14 @@ import '../src/seo-pages.css';
 import '../src/services-page.css';
 import '../src/reference-banners.css';
 import '../src/articles.css';
+import '../src/portfolio.css';
 import Script from 'next/script';
 
 export const metadata = {
   metadataBase: new URL('https://nixoware.com'),
   applicationName: 'Nixoware',
-  title: { default: 'NIXOWARE | Website, Mobile App & Maintenance Services', template: '%s | NIXOWARE' },
-  description: 'NIXOWARE designs, develops, and maintains responsive websites, mobile apps, e-commerce stores, and custom web applications for startups and growing businesses.',
+  title: { default: 'Web Development & Mobile App Development Company | Nixoware', template: '%s | NIXOWARE' },
+  description: 'Nixoware builds high-performance websites, mobile apps, e-commerce stores and custom web applications for growing businesses.',
   authors: [{ name: 'Nixoware', url: 'https://nixoware.com' }],
   creator: 'Nixoware',
   publisher: 'Nixoware',
@@ -22,8 +23,8 @@ export const metadata = {
   verification: { google: '804feecc45c29f8d' },
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    title: 'Website, Mobile App & Maintenance Services | Nixoware',
-    description: 'Build and maintain high-quality websites, mobile apps, e-commerce stores, and custom web applications with Nixoware.',
+    title: 'Web Development & Mobile App Development Company | Nixoware',
+    description: 'Nixoware builds high-performance websites, mobile apps, e-commerce stores and custom web applications for growing businesses.',
     url: '/',
     siteName: 'Nixoware',
     locale: 'en_IN',
@@ -33,8 +34,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Website, Mobile App & Maintenance Services | Nixoware',
-    description: 'Website development, mobile app development, and ongoing website maintenance for growing businesses.',
+    title: 'Web Development & Mobile App Development Company | Nixoware',
+    description: 'Website development, mobile app development, e-commerce, custom web development, and website maintenance services for growing businesses.',
     images: ['/opengraph-image']
   },
   robots: {
