@@ -41,7 +41,8 @@ export default async function ArticlePage({ params }) {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'Article', headline: article.title, description: article.description, datePublished: article.published, dateModified: article.published, mainEntityOfPage: canonical, image: 'https://nixoware.com/opengraph-image', author: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' }, publisher: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/', logo: { '@type': 'ImageObject', url: 'https://nixoware.com/icon.svg' } } },
-      { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://nixoware.com/blog' }, { '@type': 'ListItem', position: 3, name: article.title, item: canonical }] }
+      { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://nixoware.com/blog' }, { '@type': 'ListItem', position: 3, name: article.title, item: canonical }] },
+      ...(article.faqs?.length ? [{ '@type': 'FAQPage', mainEntity: article.faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }] : [])
     ]
   };
   return <>
@@ -51,7 +52,9 @@ export default async function ArticlePage({ params }) {
       <article>
         <header className="article-header"><a href="/blog">NIXOWARE INSIGHTS</a><h1>{article.title}</h1><p>{article.intro}</p><div><time dateTime={article.published}>{new Date(`${article.published}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</time><span>{article.readingTime}</span></div></header>
         <div className="article-body">{article.sections.map(([heading, paragraphs]) => <section key={heading}><h2>{heading}</h2>{paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</section>)}</div>
+        {article.faqs?.length ? <section className="article-faq" aria-labelledby="article-faq-title"><p>FREQUENTLY ASKED QUESTIONS</p><h2 id="article-faq-title">Questions about {article.title.toLowerCase()}</h2>{article.faqs.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</section> : null}
         <nav className="article-related" aria-label="Related insights"><p>MORE NIXOWARE INSIGHTS</p><div>{related.map(relatedArticle => <a href={`/blog/${relatedArticle.slug}`} key={relatedArticle.slug}><strong>{relatedArticle.title}</strong><span>{relatedArticle.description}</span></a>)}</div></nav>
+        <nav className="article-next-steps" aria-label="Continue with Nixoware"><p>CONTINUE WITH NIXOWARE</p><div><a href={article.serviceLink?.href || '/services'}><strong>{article.serviceLink?.label || 'Explore Nixoware services'}</strong><span>Find the right capability for your website, software, or digital project.</span><b aria-hidden="true">→</b></a><a href="/case-studies"><strong>See our case studies</strong><span>Explore the thinking and delivery behind selected digital projects.</span><b aria-hidden="true">→</b></a><a href="/contact"><strong>Discuss your project</strong><span>Share your goal and get a practical next step from our team.</span><b aria-hidden="true">→</b></a></div></nav>
         <aside className="article-cta"><p>Planning a digital project?</p><h2>Turn the next decision into a practical roadmap.</h2><a className="button primary" href="/contact">Talk with Nixoware <span aria-hidden="true">→</span></a></aside>
       </article>
     </main>
