@@ -2,7 +2,7 @@ import { seoSlugs } from '../lib/seo-pages';
 import { articleSlugs } from '../lib/articles';
 
 export default function sitemap() {
-  const lastModified = new Date('2026-09-23');
+  const lastModified = new Date('2026-09-25');
   return [
     { url: 'https://nixoware.com/', lastModified, changeFrequency: 'weekly', priority: 1, images: ['https://nixoware.com/web-development-hero.png'] },
     ...seoSlugs.map(slug => ({

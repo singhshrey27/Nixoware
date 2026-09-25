@@ -27,10 +27,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
+function relatedArticles(slug) {
+  return articleSlugs.filter(articleSlug => articleSlug !== slug).slice(0, 3).map(articleSlug => ({ slug: articleSlug, ...articles[articleSlug] }));
+}
+
 export default async function ArticlePage({ params }) {
   const { article: slug } = await params;
   const article = articles[slug];
   if (!article) notFound();
+  const related = relatedArticles(slug);
   const canonical = `https://nixoware.com/blog/${slug}`;
   const schema = {
     '@context': 'https://schema.org',
@@ -44,8 +49,9 @@ export default async function ArticlePage({ params }) {
     <header className="site-header seo-header"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <span aria-hidden="true">→</span></a></header>
     <main className="article-main">
       <article>
-        <header className="article-header"><a href="/blog">NIXOWARE INSIGHTS</a><h1>{article.title}</h1><p>{article.intro}</p><div><time dateTime={article.published}>23 September 2026</time><span>{article.readingTime}</span></div></header>
+        <header className="article-header"><a href="/blog">NIXOWARE INSIGHTS</a><h1>{article.title}</h1><p>{article.intro}</p><div><time dateTime={article.published}>{new Date(`${article.published}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</time><span>{article.readingTime}</span></div></header>
         <div className="article-body">{article.sections.map(([heading, paragraphs]) => <section key={heading}><h2>{heading}</h2>{paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</section>)}</div>
+        <nav className="article-related" aria-label="Related insights"><p>MORE NIXOWARE INSIGHTS</p><div>{related.map(relatedArticle => <a href={`/blog/${relatedArticle.slug}`} key={relatedArticle.slug}><strong>{relatedArticle.title}</strong><span>{relatedArticle.description}</span></a>)}</div></nav>
         <aside className="article-cta"><p>Planning a digital project?</p><h2>Turn the next decision into a practical roadmap.</h2><a className="button primary" href="/contact">Talk with Nixoware <span aria-hidden="true">→</span></a></aside>
       </article>
     </main>
