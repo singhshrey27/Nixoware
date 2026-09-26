@@ -13,8 +13,8 @@ import Script from 'next/script';
 export const metadata = {
   metadataBase: new URL('https://nixoware.com'),
   applicationName: 'Nixoware',
-  title: { default: 'Web Development & Mobile App Development Company | Nixoware', template: '%s | NIXOWARE' },
-  description: 'Nixoware builds high-performance websites, mobile apps, e-commerce stores and custom web applications for growing businesses.',
+  title: { default: 'Web & Mobile App Development Company in India | Nixoware', template: '%s | Nixoware' },
+  description: 'Nixoware is a web and mobile app development company in India building fast websites, e-commerce stores, custom software, and reliable digital products.',
   authors: [{ name: 'Nixoware', url: 'https://nixoware.com' }],
   creator: 'Nixoware',
   publisher: 'Nixoware',
@@ -23,8 +23,8 @@ export const metadata = {
   verification: { google: '804feecc45c29f8d' },
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    title: 'Web Development & Mobile App Development Company | Nixoware',
-    description: 'Nixoware builds high-performance websites, mobile apps, e-commerce stores and custom web applications for growing businesses.',
+    title: 'Web & Mobile App Development Company in India | Nixoware',
+    description: 'Nixoware builds fast websites, mobile apps, e-commerce stores, and custom software for growing businesses in India.',
     url: '/',
     siteName: 'Nixoware',
     locale: 'en_IN',

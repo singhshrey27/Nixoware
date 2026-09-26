@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
   return {
     title: article.title,
     description: article.description,
+    keywords: article.keywords,
     alternates: { canonical: url, languages: { 'en-IN': url } },
     openGraph: { title: article.title, description: article.description, url, type: 'article', siteName: 'Nixoware', locale: 'en_IN', publishedTime: article.published, modifiedTime: article.published, authors: ['Nixoware'], images: [image] },
     twitter: { card: 'summary_large_image', title: article.title, description: article.description, images: ['/opengraph-image'] }
