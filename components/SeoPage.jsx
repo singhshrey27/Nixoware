@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Brand from './Brand';
 import { pageBanners } from '../lib/page-banners';
+import { articles, articleSlugs, featuredArticleSlugs } from '../lib/articles';
 import { MobileNavigation } from './Interactive';
 
 const serviceLinks = [
@@ -22,6 +23,10 @@ export default function SeoPage({ page, slug }) {
     ['How do you estimate project cost and timeline?', 'We review the required outcomes, users, features, integrations, technical constraints, and delivery risks before recommending a scope, timeline, and commercial approach.'],
     ['Can Nixoware support the product after launch?', 'Yes. Support can include monitoring, maintenance, content or feature updates, performance improvements, and a prioritized roadmap for future releases.']
   ] : []);
+  const pageCards = slug === 'blog'
+    ? [...featuredArticleSlugs, ...articleSlugs.filter(articleSlug => !featuredArticleSlugs.includes(articleSlug))]
+      .map(articleSlug => [articles[articleSlug].title, articles[articleSlug].description, `/blog/${articleSlug}`])
+    : page.cards;
   const schema = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: page.title, description: page.description, url: canonical, inLanguage: 'en-IN', primaryImageOfPage: { '@type': 'ImageObject', url: `https://nixoware.com${banner.src}` }, isPartOf: { '@id': 'https://nixoware.com/#website' }, about: { '@id': 'https://nixoware.com/#organization' } },
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: page.label, item: canonical }] },
@@ -34,7 +39,7 @@ export default function SeoPage({ page, slug }) {
     <header className="site-header seo-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <Arrow/></a></header>
     <main className="seo-main">
       <section className="seo-hero reference-hero"><div className="seo-hero-inner"><h1>{banner.lines.map((line, index) => <span key={line} className={index === banner.lines.length - 1 ? 'banner-accent' : undefined}>{line}</span>)}</h1><p>{banner.description}</p><div className="seo-actions"><a className="button primary" href={slug === 'contact' ? 'mailto:nixoware@gmail.com' : '/contact'}>{slug === 'contact' ? 'Email our team' : 'Discuss your project'} <Arrow/></a><a href={page.cards ? '#page-offerings' : '/services'}>{page.cards ? 'Explore this page' : 'Explore our services'} <Arrow/></a></div></div><div className="page-hero-visual"><Image src={banner.src} alt={banner.alt} fill priority sizes="(max-width: 980px) 100vw, 56vw"/></div></section>
-      {page.cards ? <section className="seo-card-section" aria-labelledby="page-offerings"><div className="seo-section-heading"><p className="seo-eyebrow">WHAT WE COVER</p><h2 id="page-offerings">Focused capabilities and experience.</h2></div><div className="seo-cards">{page.cards.map(([title, text, href]) => <article key={title}><h3>{title}</h3><p>{text}</p>{href ? <a href={href}>Learn more <Arrow/></a> : null}</article>)}</div></section> : null}
+      {pageCards ? <section className="seo-card-section" aria-labelledby="page-offerings"><div className="seo-section-heading"><p className="seo-eyebrow">WHAT WE COVER</p><h2 id="page-offerings">Focused capabilities and experience.</h2></div><div className="seo-cards">{pageCards.map(([title, text, href]) => <article key={title}><h3>{title}</h3><p>{text}</p>{href ? <a href={href}>Learn more <Arrow/></a> : null}</article>)}</div></section> : null}
       <section className="seo-content-section"><div className="seo-section-heading"><p className="seo-eyebrow">OUR APPROACH</p><h2>Clear decisions. Maintainable outcomes.</h2></div><div className="seo-content-grid">{page.sections.map(([title, text]) => <article key={title}><h2>{title}</h2><p>{text}</p></article>)}</div></section>
       {faqs.length ? <section className="seo-card-section seo-faq" aria-labelledby="faq-title"><div className="seo-section-heading"><p className="seo-eyebrow">FREQUENTLY ASKED QUESTIONS</p><h2 id="faq-title">Questions about {page.label.toLowerCase()}.</h2></div><div className="seo-content-grid">{faqs.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</div></section> : null}
       <section className="seo-related"><div><p className="seo-eyebrow">NEXT STEP</p><h2>Continue exploring Nixoware.</h2></div><div>{page.links.map(([label, href]) => <a key={label} href={href}>{label} <Arrow/></a>)}</div></section>
