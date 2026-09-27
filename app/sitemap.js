@@ -1,5 +1,5 @@
 import { seoSlugs } from '../lib/seo-pages';
-import { articleSlugs } from '../lib/articles';
+import { articles, articleSlugs } from '../lib/articles';
 import { portfolioSlugs } from '../lib/portfolio';
 
 export default function sitemap() {
@@ -15,7 +15,7 @@ export default function sitemap() {
     })),
     ...articleSlugs.map(slug => ({
       url: `https://nixoware.com/blog/${slug}`,
-      lastModified,
+      lastModified: new Date(articles[slug].modified || articles[slug].published),
       changeFrequency: 'monthly',
       priority: 0.75,
       images: ['https://nixoware.com/banners/blog.webp']
