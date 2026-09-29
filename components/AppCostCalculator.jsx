@@ -2,35 +2,39 @@
 
 import { useMemo, useState } from 'react';
 
+const HOURLY_RATE_USD = 20;
+const USD_TO_INR_PLANNING_RATE = 84;
 const appTypes = [
-  ['simple', 'Simple app', 3, 8],
-  ['business', 'Business app', 8, 20],
-  ['ecommerce', 'E-commerce', 10, 24],
-  ['marketplace', 'Marketplace', 15, 40],
-  ['delivery', 'Delivery', 15, 40],
-  ['fintech', 'Fintech', 25, 60],
-  ['healthcare', 'Healthcare', 18, 45],
-  ['ai', 'AI app', 15, 45],
+  ['simple', 'Simple app', 30, 60],
+  ['business', 'Business app', 90, 210],
+  ['ecommerce', 'E-commerce', 110, 210],
+  ['marketplace', 'Marketplace', 140, 210],
+  ['delivery', 'Delivery', 140, 210],
+  ['fintech', 'Fintech', 170, 210],
+  ['healthcare', 'Healthcare', 150, 210],
+  ['ai', 'AI app', 140, 210],
 ];
 
 const platforms = [
-  ['android', 'Android', 0],
-  ['ios', 'iOS', 1],
-  ['both', 'Android + iOS', 1.55],
+  ['android', 'Android', 1],
+  ['ios', 'iOS', 1.05],
+  ['both', 'Android + iOS', 1.45],
 ];
 
 const features = [
-  ['login', 'Login', 0.5],
-  ['payments', 'Payments', 1.5],
-  ['chat', 'Chat', 1.5],
-  ['gps', 'GPS / live location', 2],
-  ['push', 'Push notifications', 0.5],
-  ['ai', 'AI features', 4],
-  ['admin', 'Admin panel', 2],
-  ['api', 'API integrations', 2],
+  ['login', 'Login', 24],
+  ['payments', 'Payments', 72],
+  ['chat', 'Chat', 72],
+  ['gps', 'GPS / live location', 96],
+  ['push', 'Push notifications', 24],
+  ['ai', 'AI features', 160],
+  ['admin', 'Admin panel', 96],
+  ['api', 'API integrations', 96],
 ];
 
-const formatLakhs = value => `₹${value.toFixed(1).replace('.0', '')} lakh`;
+const formatLakhs = value => value < 1
+  ? `₹${Math.round(value * 100000).toLocaleString('en-IN')}`
+  : `₹${value.toFixed(1).replace('.0', '')} lakh`;
 
 export default function AppCostCalculator() {
   const [appType, setAppType] = useState('business');
@@ -40,11 +44,14 @@ export default function AppCostCalculator() {
   const estimate = useMemo(() => {
     const [, , minimum, maximum] = appTypes.find(([key]) => key === appType);
     const platformFactor = platforms.find(([key]) => key === platform)[2];
-    const featureCost = features.filter(([key]) => selectedFeatures.includes(key)).reduce((sum, [, , cost]) => sum + cost, 0);
-    const platformCost = platform === 'android' ? 0 : platform === 'ios' ? 1 : 3;
+    const featureCost = features.filter(([key]) => selectedFeatures.includes(key)).reduce((sum, [, , cost]) => sum + cost, 0) * (appType === 'simple' ? 0.3 : 1);
+    const minimumEstimate = (minimum * platformFactor + featureCost) * HOURLY_RATE_USD * USD_TO_INR_PLANNING_RATE / 100000;
+    const maximumEstimate = (maximum * platformFactor + featureCost * 1.6) * HOURLY_RATE_USD * USD_TO_INR_PLANNING_RATE / 100000;
+    const lowerLimit = appType === 'simple' ? 0.5 : 1.5;
+    const upperLimit = appType === 'simple' ? 1 : 3.5;
     return {
-      minimum: minimum + platformCost + featureCost,
-      maximum: maximum * platformFactor + platformCost + featureCost * 1.8,
+      minimum: Math.min(Math.max(minimumEstimate, lowerLimit), upperLimit),
+      maximum: Math.min(Math.max(maximumEstimate, lowerLimit), upperLimit),
     };
   }, [appType, platform, selectedFeatures]);
 
@@ -56,7 +63,7 @@ export default function AppCostCalculator() {
     <div className="app-cost-calculator-heading">
       <p className="section-label">2026 APP DEVELOPMENT COST CALCULATOR</p>
       <h2 id="app-cost-calculator-title">Build a quick budget range for your app.</h2>
-      <p>Choose the closest project type, platforms and features. This planning estimate is a starting range, not a fixed quotation.</p>
+      <p>Choose the closest project type, platforms and features. This planning estimate uses a lean <strong>${HOURLY_RATE_USD}/hour</strong> rate and is a starting range, not a fixed quotation.</p>
     </div>
     <div className="app-cost-calculator-grid">
       <div className="app-cost-calculator-controls">
@@ -67,7 +74,7 @@ export default function AppCostCalculator() {
       <aside className="app-cost-calculator-result" aria-live="polite">
         <p className="section-label">ESTIMATED DEVELOPMENT RANGE</p>
         <strong>{formatLakhs(estimate.minimum)}–{formatLakhs(estimate.maximum)}</strong>
-        <p>Indicative planning range for a professionally designed, tested and deployable app in India.</p>
+        <p>Indicative planning range using ${HOURLY_RATE_USD}/hour and an approximate ₹{USD_TO_INR_PLANNING_RATE}/USD conversion for India.</p>
         <a className="button primary" href="/contact">Get a free project estimate <span aria-hidden="true">→</span></a>
       </aside>
     </div>
