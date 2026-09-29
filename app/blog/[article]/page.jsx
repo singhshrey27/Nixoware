@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Brand from '../../../components/Brand';
 import { MobileNavigation } from '../../../components/Interactive';
 import { articles, articleSlugs } from '../../../lib/articles';
+import AppCostCalculator from '../../../components/AppCostCalculator';
 
 export function generateStaticParams() {
   return articleSlugs.map(article => ({ article }));
@@ -41,7 +42,7 @@ export default async function ArticlePage({ params }) {
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Article', headline: article.title, description: article.description, datePublished: article.published, dateModified: article.modified || article.published, mainEntityOfPage: canonical, image: 'https://nixoware.com/opengraph-image', author: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' }, publisher: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/', logo: { '@type': 'ImageObject', url: 'https://nixoware.com/icon.svg' } } },
+      { '@type': 'Article', headline: article.title, description: article.description, datePublished: article.published, dateModified: article.modified || article.published, mainEntityOfPage: canonical, image: 'https://nixoware.com/opengraph-image', author: article.author ? { '@type': 'Person', name: article.author.name, jobTitle: article.author.role, worksFor: { '@type': 'Organization', name: article.author.company }, url: `https://nixoware.com${article.author.profile}` } : { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' }, publisher: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/', logo: { '@type': 'ImageObject', url: 'https://nixoware.com/icon.svg' } } },
       { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://nixoware.com/blog' }, { '@type': 'ListItem', position: 3, name: article.title, item: canonical }] },
       ...(article.faqs?.length ? [{ '@type': 'FAQPage', mainEntity: article.faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }] : [])
     ]
@@ -51,12 +52,14 @@ export default async function ArticlePage({ params }) {
     <header className="site-header seo-header"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <span aria-hidden="true">→</span></a></header>
     <main className="article-main">
       <article>
-        <header className="article-header"><a href="/blog">NIXOWARE INSIGHTS</a><h1>{article.title}</h1><p>{article.intro}</p><div><time dateTime={article.published}>{new Date(`${article.published}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</time><span>{article.readingTime}</span>{article.modified ? <span>Updated <time dateTime={article.modified}>{new Date(`${article.modified}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span> : null}</div></header>
+        <header className="article-header"><a href="/blog">NIXOWARE INSIGHTS</a><h1>{article.title}</h1><p>{article.intro}</p><div><time dateTime={article.published}>{new Date(`${article.published}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</time><span>{article.readingTime}</span>{article.modified ? <span>Updated <time dateTime={article.modified}>{new Date(`${article.modified}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span> : null}</div>{article.author ? <div className="article-author"><span>Written by <a href={article.author.profile}>{article.author.name}</a></span><span>{article.author.role} / {article.author.company}</span></div> : null}</header>
         <div className="article-body">
           {article.sources?.length ? <nav aria-label="Article contents"><h2>In this checklist</h2><ol>{article.sections.map(([heading], index) => <li key={heading}><a href={`#section-${index + 1}`}>{heading}</a></li>)}</ol></nav> : null}
           {article.sections.map(([heading, paragraphs], index) => <section key={heading} id={`section-${index + 1}`}><h2>{heading}</h2>{paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</section>)}
           {article.sources?.length ? <section aria-labelledby="article-sources"><h2 id="article-sources">Sources and further reading</h2><ul>{article.sources.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}</ul></section> : null}
         </div>
+        {slug === 'mobile-app-development-cost-guide' ? <AppCostCalculator /> : null}
+        {article.author ? <section className="article-author-bio" aria-labelledby="article-author-title"><p>ABOUT THE AUTHOR</p><h2 id="article-author-title">{article.author.name}</h2><p>{article.author.name} is a {article.author.role.toLowerCase()} at {article.author.company}, helping teams plan and build practical software products, mobile applications and digital experiences.</p><a href={article.author.profile}>View author profile <span aria-hidden="true">â†’</span></a></section> : null}
         {article.contentLinks?.length ? <nav className="article-content-links" aria-label="Relevant Nixoware services and resources"><p>RELEVANT NIXOWARE RESOURCES</p><div>{article.contentLinks.map(([label, href, description]) => <a href={href} key={href}><strong>{label}</strong><span>{description}</span><b aria-hidden="true">→</b></a>)}</div></nav> : null}
         {article.faqs?.length ? <section className="article-faq" aria-labelledby="article-faq-title"><p>FREQUENTLY ASKED QUESTIONS</p><h2 id="article-faq-title">Questions about {article.title.toLowerCase()}</h2>{article.faqs.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</section> : null}
         <nav className="article-related" aria-label="Related insights"><p>MORE NIXOWARE INSIGHTS</p><div>{related.map(relatedArticle => <a href={`/blog/${relatedArticle.slug}`} key={relatedArticle.slug}><strong>{relatedArticle.title}</strong><span>{relatedArticle.description}</span></a>)}</div></nav>
