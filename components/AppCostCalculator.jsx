@@ -75,7 +75,7 @@ export default function AppCostCalculator() {
         <p className="section-label">ESTIMATED DEVELOPMENT RANGE</p>
         <strong>{formatLakhs(estimate.minimum)}–{formatLakhs(estimate.maximum)}</strong>
         <p>Indicative planning range using ${HOURLY_RATE_USD}/hour and an approximate ₹{USD_TO_INR_PLANNING_RATE}/USD conversion for India.</p>
-        <a className="button primary" href="/contact">Get a free project estimate <span aria-hidden="true">→</span></a>
+        <a className="button primary" href="https://wa.me/message/EQ2FP6REOCZXN1" target="_blank" rel="noopener noreferrer">Get a free project estimate <span aria-hidden="true">→</span></a>
       </aside>
     </div>
   </section>;

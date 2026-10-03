@@ -8,7 +8,7 @@ const navigationItems = [
   ['/case-studies', 'Case Studies'],
   ['/about', 'About'],
   ['/blog', 'Insights'],
-  ['/contact', 'Contact'],
+  ['https://wa.me/message/EQ2FP6REOCZXN1', 'WhatsApp'],
 ];
 
 export function MobileNavigation() {
@@ -28,7 +28,7 @@ export function MobileNavigation() {
   }, [open]);
   return <>
     <nav id="primary-navigation" className={open ? 'open' : ''} aria-label="Primary navigation">
-      {navigationItems.map(([href, label]) => <a key={href} className={active === href ? 'active' : ''} onClick={close} href={href}>{label}</a>)}
+      {navigationItems.map(([href, label]) => <a key={href} className={active === href ? 'active' : ''} onClick={close} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>{label}</a>)}
     </nav>
     <button className="menu-button" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen(value => !value)}><span></span><span></span></button>
   </>;

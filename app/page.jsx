@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Brand from '../components/Brand';
 import SocialLinks from '../components/SocialLinks';
-import { ContactForm, MobileNavigation } from '../components/Interactive';
+import { MobileNavigation } from '../components/Interactive';
+import { whatsappUrl } from '../lib/contact';
 
 export const metadata = { alternates: { canonical: '/', languages: { 'en-IN': '/' } } };
 
@@ -33,6 +34,7 @@ const steps = [
 ];
 
 function Arrow() { return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>; }
+function WhatsAppConnect() { return <a className="button primary contact-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a>; }
 function CapabilityIcon({ type }) {
   if (type === 'cloud') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 25h15a6 6 0 0 0 1-12 9 9 0 0 0-17-2A7 7 0 0 0 9 25Z"/></svg>;
   if (type === 'cube') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 11 6v13l-11 7-11-7V9l11-6Zm0 0v13m11-7-11 7L5 9m11 7v13"/></svg>;
@@ -108,7 +110,7 @@ export default function Home() {
   };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
-    <header className="site-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <Arrow/></a></header>
+    <header className="site-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a></header>
     <main>
       <section className="hero" id="banner">
         <div className="hero-copy"><h1>Web & mobile development<br/><em>for growing businesses.</em></h1><p>Nixoware designs, develops, and maintains high-performance websites, mobile apps, e-commerce platforms, and custom web applications for businesses across India.</p><div className="hero-actions"><a className="button coral" href="/contact">Start your project <Arrow/></a><a className="hero-secondary" href="#services">Explore our services <Arrow/></a></div></div>
@@ -153,7 +155,7 @@ export default function Home() {
 
       <section className="homepage-faq light-section" aria-labelledby="homepage-faq-title"><div className="homepage-faq-heading"><p className="section-label">COMMON QUESTIONS</p><h2 id="homepage-faq-title">A practical start for your next digital project.</h2></div><div className="homepage-faq-list"><details><summary>What services does Nixoware provide?</summary><p>We provide website development, mobile app development, website maintenance, e-commerce development, custom web applications, and UI/UX design.</p></details><details><summary>Who does Nixoware work with?</summary><p>We support startups, small businesses, growing companies, healthcare organizations, education and event teams, and professional service organizations across India.</p></details><details><summary>Can you improve an existing website?</summary><p>Yes. We can audit and improve content, user experience, accessibility, speed, security, forms, integrations, and ongoing maintenance without assuming a complete rebuild is necessary.</p></details></div></section>
 
-      <section className="contact-connect" id="contact" aria-labelledby="contact-title"><div className="connect-copy"><h2 id="contact-title">Let’s build something<br/>valuable together.</h2><p>Whether you need a new website, a mobile app, or reliable maintenance for an existing platform, tell us what you want to achieve.</p><ul className="connect-benefits"><li>Discuss your goals with our team</li><li>Receive a practical technical recommendation</li><li>Define scope, timeline, and the next step</li></ul><div className="connect-details"><a href="tel:+919650429575"><span aria-hidden="true">↗</span><div><small>Call our team</small>+91 96504 29575</div></a><a href="mailto:nixoware@gmail.com"><span aria-hidden="true">@</span><div><small>Email us</small>nixoware@gmail.com</div></a></div></div><ContactForm/></section>
+      <section className="contact-connect" id="contact" aria-labelledby="contact-title"><div className="connect-copy"><h2 id="contact-title">Let’s build something<br/>valuable together.</h2><p>Whether you need a new website, a mobile app, or reliable maintenance for an existing platform, tell us what you want to achieve.</p><ul className="connect-benefits"><li>Discuss your goals with our team</li><li>Receive a practical technical recommendation</li><li>Define scope, timeline, and the next step</li></ul><div className="connect-details"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span><div><small>Chat on WhatsApp</small>Start a conversation</div></a><a href="tel:+919650429575"><span aria-hidden="true">↗</span><div><small>Call our team</small>+91 96504 29575</div></a></div></div><WhatsAppConnect/></section>
       <section className="homepage-social" aria-labelledby="social-title"><div className="homepage-social-copy"><p className="section-label">FOLLOW NIXOWARE</p><h2 id="social-title">Ideas, launches, and useful digital guidance.</h2></div><SocialLinks/></section>
     </main>
     <footer className="site-footer"><div className="footer-brand-column"><p className="footer-kicker">NIXOWARE / 2026</p><Brand footer/><p>Nixoware designs, develops, and maintains websites, mobile apps, online stores, and custom web applications for growing businesses.</p><SocialLinks compact/></div><nav className="footer-links" aria-label="Services"><h3>Services</h3><a href="/web-development">Website development</a><a href="/mobile-app-development">Mobile app development</a><a href="#maintenance">Website maintenance</a><a href="/ecommerce-development">E-commerce</a></nav><nav className="footer-links" aria-label="Company"><h3>Company</h3><a href="/about">About us</a><a href="/portfolio">Portfolio</a><a href="/case-studies">Case studies</a><a href="/contact">Contact us</a></nav><nav className="footer-links" aria-label="Explore"><h3>Explore</h3><a href="#approach">Our process</a><a href="/ui-ux-design">UI/UX design</a><a href="/software-development">Custom software</a><a href="/blog">Insights</a></nav><small className="footer-copyright">© 2026 Nixoware. All rights reserved.</small></footer>

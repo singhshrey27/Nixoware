@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { whatsappUrl } from '../../../lib/contact';
 import { notFound } from 'next/navigation';
 import Brand from '../../../components/Brand';
 import { MobileNavigation } from '../../../components/Interactive';
@@ -39,7 +40,7 @@ export default async function PortfolioProjectPage({ params }) {
   };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
-    <header className="site-header seo-header"><Brand/><MobileNavigation/><a className="header-cta" href="/contact">Start a conversation <span aria-hidden="true">→</span></a></header>
+    <header className="site-header seo-header"><Brand/><MobileNavigation/><a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <span aria-hidden="true">→</span></a></header>
     <main className="portfolio-detail-main">
       <article className="portfolio-detail">
         <header className="portfolio-detail-hero"><p className="seo-eyebrow">NIXOWARE PORTFOLIO / {project.industry.toUpperCase()}</p><h1>{project.title}</h1><p>{project.description}</p><a className="button primary" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visit live website <span aria-hidden="true">↗</span></a></header>
