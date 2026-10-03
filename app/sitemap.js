@@ -5,7 +5,7 @@ import { portfolioSlugs } from '../lib/portfolio';
 export default function sitemap() {
   const lastModified = new Date('2026-09-26');
   return [
-    { url: 'https://nixoware.com/', lastModified, changeFrequency: 'weekly', priority: 1, images: ['https://nixoware.com/web-development-hero.png'] },
+    { url: 'https://www.nixoware.com/', lastModified, changeFrequency: 'weekly', priority: 1, images: ['https://www.nixoware.com/web-development-hero.png'] },
     ...seoSlugs.map(slug => ({
       url: `https://nixoware.com/${slug}`,
       lastModified,

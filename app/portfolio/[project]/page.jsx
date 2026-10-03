@@ -30,7 +30,7 @@ export default async function PortfolioProjectPage({ params }) {
   const { project: slug } = await params;
   const project = portfolioProjects[slug];
   if (!project) notFound();
-  const canonical = `https://nixoware.com/portfolio/${slug}`;
+  const canonical = `https://www.nixoware.com/portfolio/${slug}`;
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [

@@ -60,9 +60,9 @@ export default function Home() {
     '@graph': [
       {
         '@type': 'ProfessionalService',
-        '@id': 'https://nixoware.com/#professional-service',
+        '@id': 'https://www.nixoware.com/#professional-service',
         name: 'Nixoware Web and Mobile Development',
-        url: 'https://nixoware.com/',
+        url: 'https://www.nixoware.com/',
         provider: { '@id': 'https://nixoware.com/#organization' },
         areaServed: { '@type': 'Country', name: 'India' },
         serviceType: ['Web development', 'Mobile app development', 'E-commerce development', 'Custom web development', 'Website maintenance'],

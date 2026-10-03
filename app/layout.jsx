@@ -13,11 +13,11 @@ import '../src/portfolio.css';
 import Script from 'next/script';
 
 export const metadata = {
-  metadataBase: new URL('https://nixoware.com'),
+  metadataBase: new URL('https://www.nixoware.com'),
   applicationName: 'Nixoware',
   title: { default: 'Web & Mobile App Development Company in India | Nixoware', template: '%s | Nixoware' },
   description: 'Nixoware is a web and mobile app development company in India building fast websites, e-commerce stores, custom software, and reliable digital products.',
-  authors: [{ name: 'Nixoware', url: 'https://nixoware.com' }],
+  authors: [{ name: 'Nixoware', url: 'https://www.nixoware.com' }],
   creator: 'Nixoware',
   publisher: 'Nixoware',
   category: 'technology',

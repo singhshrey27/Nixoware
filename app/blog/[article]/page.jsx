@@ -48,11 +48,11 @@ export default async function ArticlePage({ params }) {
   const article = articles[slug];
   if (!article) notFound();
   const related = relatedArticles(slug);
-  const canonical = `https://nixoware.com/blog/${slug}`;
+  const canonical = `https://www.nixoware.com/blog/${slug}`;
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Article', headline: article.title, description: article.description, datePublished: article.published, dateModified: article.modified || article.published, mainEntityOfPage: canonical, image: `https://nixoware.com${article.featuredImage || '/banners/blog.webp'}`, author: article.author ? { '@type': 'Person', name: article.author.name, jobTitle: article.author.role, worksFor: { '@type': 'Organization', name: article.author.company }, url: `https://nixoware.com${article.author.profile}` } : { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' }, publisher: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/', logo: { '@type': 'ImageObject', url: 'https://nixoware.com/icon.svg' } } },
+      { '@type': 'Article', headline: article.title, description: article.description, datePublished: article.published, dateModified: article.modified || article.published, mainEntityOfPage: canonical, image: `https://www.nixoware.com${article.featuredImage || '/banners/blog.webp'}`, author: article.author ? { '@type': 'Person', name: article.author.name, jobTitle: article.author.role, worksFor: { '@type': 'Organization', name: article.author.company }, url: `https://www.nixoware.com${article.author.profile}` } : { '@type': 'Organization', name: 'Nixoware', url: 'https://www.nixoware.com/' }, publisher: { '@type': 'Organization', name: 'Nixoware', url: 'https://www.nixoware.com/', logo: { '@type': 'ImageObject', url: 'https://www.nixoware.com/icon.svg' } } },
       { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://nixoware.com/blog' }, { '@type': 'ListItem', position: 3, name: article.title, item: canonical }] },
       ...(article.faqs?.length ? [{ '@type': 'FAQPage', mainEntity: article.faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }] : [])
     ]

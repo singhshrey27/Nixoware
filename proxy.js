@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 
-const canonicalHostname = 'nixoware.com';
+const canonicalHostname = 'www.nixoware.com';
 
 export function proxy(request) {
   const forwardedHost = request.headers.get('x-forwarded-host');
   const requestHost = forwardedHost || request.headers.get('host') || '';
   const hostname = requestHost.split(',')[0].trim().split(':')[0].toLowerCase();
 
-  if (hostname !== `www.${canonicalHostname}`) {
+  if (hostname !== canonicalHostname || request.nextUrl.protocol !== 'https:') {
     return NextResponse.next();
   }
 
