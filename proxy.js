@@ -13,10 +13,6 @@ export function proxy(request) {
     return NextResponse.next();
   }
 
-  if (hostname !== canonicalHostname || protocol !== 'https') {
-    return NextResponse.next();
-  }
-
   const canonicalUrl = request.nextUrl.clone();
   canonicalUrl.protocol = 'https:';
   canonicalUrl.hostname = canonicalHostname;
