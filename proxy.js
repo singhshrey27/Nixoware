@@ -4,10 +4,16 @@ const canonicalHostname = 'www.nixoware.com';
 
 export function proxy(request) {
   const forwardedHost = request.headers.get('x-forwarded-host');
+  const forwardedProto = request.headers.get('x-forwarded-proto');
   const requestHost = forwardedHost || request.headers.get('host') || '';
   const hostname = requestHost.split(',')[0].trim().split(':')[0].toLowerCase();
+  const protocol = (forwardedProto || request.nextUrl.protocol).split(',')[0].trim().replace(':', '').toLowerCase();
 
-  if (hostname !== canonicalHostname || request.nextUrl.protocol !== 'https:') {
+  if (hostname === canonicalHostname && protocol === 'https') {
+    return NextResponse.next();
+  }
+
+  if (hostname !== canonicalHostname || protocol !== 'https') {
     return NextResponse.next();
   }
 
