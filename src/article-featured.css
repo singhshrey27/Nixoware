@@ -1,0 +1,2 @@
+.article-featured-image{margin:clamp(2.5rem,5vw,4rem) 0 0;overflow:hidden;border-radius:18px;background:#071b31}
+.article-featured-image img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover}

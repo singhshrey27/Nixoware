@@ -7,6 +7,7 @@ import '../src/seo-pages.css';
 import '../src/services-page.css';
 import '../src/reference-banners.css';
 import '../src/articles.css';
+import '../src/article-featured.css';
 import '../src/portfolio.css';
 import Script from 'next/script';
 
