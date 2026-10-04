@@ -23,8 +23,8 @@ const serviceDetails = {
   '06': 'User research, wireframes, interactive prototypes, design systems, and responsive interface design.',
 };
 const clients = [
-  { name: 'Pune Education Forum', category: 'Education & Events', url: 'https://puneeducationforum.in/', portfolio: '/portfolio/pune-education-forum-website', domain: 'puneeducationforum.in', image: '/pune-education-forum-website.png', description: 'A leadership forum for conversations shaping the future of learning.', outcome: 'A responsive event and leadership platform that makes the forum, speakers, sessions, partners, and participation path easier to explore.' },
-  { name: 'Teknolab', category: 'Product Testing & Quality', url: 'https://teknolab.in/', portfolio: '/portfolio/teknolab-website', domain: 'teknolab.in', image: '/teknolab-website.png', description: 'Independent testing for electronics, IT, lighting, and electrical products.', outcome: 'A service-led website that makes complex testing capabilities clearer and gives prospective customers a direct route to enquiry.' },
+  { name: 'Pune Education Forum', category: 'Education & Events', url: 'https://puneeducationforum.in/', portfolio: '/portfolio/pune-education-forum-website', domain: 'puneeducationforum.in', image: '/pune-education-forum-website.webp', description: 'A leadership forum for conversations shaping the future of learning.', outcome: 'A responsive event and leadership platform that makes the forum, speakers, sessions, partners, and participation path easier to explore.' },
+  { name: 'Teknolab', category: 'Product Testing & Quality', url: 'https://teknolab.in/', portfolio: '/portfolio/teknolab-website', domain: 'teknolab.in', image: '/teknolab-website.webp', description: 'Independent testing for electronics, IT, lighting, and electrical products.', outcome: 'A service-led website that makes complex testing capabilities clearer and gives prospective customers a direct route to enquiry.' },
 ];
 const steps = [
   { number: '01', title: 'Discover', text: 'Understand your goals, audience, requirements, budget, and priorities.' },
@@ -114,7 +114,7 @@ export default function Home() {
     <main>
       <section className="hero" id="banner">
         <div className="hero-copy"><h1>Web & mobile development<br/><em>for growing businesses.</em></h1><p>Nixoware designs, develops, and maintains high-performance websites, mobile apps, e-commerce platforms, and custom web applications for businesses across India.</p><div className="hero-actions"><a className="button coral" href="/contact">Start your project <Arrow/></a><a className="hero-secondary" href="#services">Explore our services <Arrow/></a></div></div>
-        <div className="hero-media web-product-media"><Image src="/web-development-hero.png" alt="Illustrative website, mobile application, and dashboard designs displayed on digital devices" fill priority unoptimized sizes="(max-width: 980px) 100vw, 58vw"/></div>
+        <div className="hero-media web-product-media"><Image src="/web-development-hero.webp" alt="Illustrative website, mobile application, and dashboard designs displayed on digital devices" fill priority unoptimized sizes="(max-width: 980px) 100vw, 58vw"/></div>
       </section>
 
       <ClientShowcase/>
@@ -145,7 +145,7 @@ export default function Home() {
 
       <section className="story light-section" id="work">
         <div className="story-copy"><p className="section-label">OUR WORK</p><h2>Real websites.<br/>Real business outcomes.</h2><p>We create digital experiences that help organizations explain their value, reach customers, and manage their work more effectively. Explore websites we have delivered for education, events, testing, and professional services.</p><a href="/portfolio" className="text-link">View our portfolio <Arrow/></a></div>
-        <div className="story-media"><Image src="/cloud-operations.png" alt="Server cabinets in a modern cloud data center" fill unoptimized sizes="(max-width: 980px) 100vw, 52vw"/><div className="story-note">Simpler systems.<br/>Stronger outcomes.<span></span></div></div>
+        <div className="story-media"><Image src="/cloud-operations.webp" alt="Server cabinets in a modern cloud data center" fill unoptimized sizes="(max-width: 980px) 100vw, 52vw"/><div className="story-note">Simpler systems.<br/>Stronger outcomes.<span></span></div></div>
       </section>
 
       <section className="principles dark-section" id="company">
