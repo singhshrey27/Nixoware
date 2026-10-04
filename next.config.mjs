@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    // Hostinger serves the static assets directly; its CDN does not proxy
+    // Next's /_next/image optimizer reliably.
+    unoptimized: true,
+  },
   async headers() {
     return [
       {
