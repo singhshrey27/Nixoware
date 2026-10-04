@@ -114,7 +114,7 @@ export default function Home() {
     <main>
       <section className="hero" id="banner">
         <div className="hero-copy"><h1>Web & mobile development<br/><em>for growing businesses.</em></h1><p>Nixoware designs, develops, and maintains high-performance websites, mobile apps, e-commerce platforms, and custom web applications for businesses across India.</p><div className="hero-actions"><a className="button coral" href="/contact">Start your project <Arrow/></a><a className="hero-secondary" href="#services">Explore our services <Arrow/></a></div></div>
-        <div className="hero-media web-product-media"><Image src="/web-development-hero.png" alt="Illustrative website, mobile application, and dashboard designs displayed on digital devices" fill priority sizes="(max-width: 980px) 100vw, 58vw"/></div>
+        <div className="hero-media web-product-media"><Image src="/web-development-hero.png" alt="Illustrative website, mobile application, and dashboard designs displayed on digital devices" fill priority unoptimized sizes="(max-width: 980px) 100vw, 58vw"/></div>
       </section>
 
       <ClientShowcase/>
@@ -145,7 +145,7 @@ export default function Home() {
 
       <section className="story light-section" id="work">
         <div className="story-copy"><p className="section-label">OUR WORK</p><h2>Real websites.<br/>Real business outcomes.</h2><p>We create digital experiences that help organizations explain their value, reach customers, and manage their work more effectively. Explore websites we have delivered for education, events, testing, and professional services.</p><a href="/portfolio" className="text-link">View our portfolio <Arrow/></a></div>
-        <div className="story-media"><Image src="/cloud-operations.png" alt="Server cabinets in a modern cloud data center" fill sizes="(max-width: 980px) 100vw, 52vw"/><div className="story-note">Simpler systems.<br/>Stronger outcomes.<span></span></div></div>
+        <div className="story-media"><Image src="/cloud-operations.png" alt="Server cabinets in a modern cloud data center" fill unoptimized sizes="(max-width: 980px) 100vw, 52vw"/><div className="story-note">Simpler systems.<br/>Stronger outcomes.<span></span></div></div>
       </section>
 
       <section className="principles dark-section" id="company">
