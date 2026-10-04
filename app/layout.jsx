@@ -36,7 +36,10 @@ export const metadata = {
   publisher: 'Nixoware',
   category: 'technology',
   alternates: { languages: { 'en-IN': '/' } },
-  verification: { google: '804feecc45c29f8d' },
+  verification: {
+    google: '804feecc45c29f8d',
+    other: { 'trustpilot-one-time-domain-verification-id': '9ffc39c0-bb68-4818-9eff-9fe9c5b79dd1' },
+  },
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     title: 'Web & Mobile App Development Company in India | Nixoware',
