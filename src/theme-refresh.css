@@ -296,6 +296,10 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
 }
 
 /* Keep every raster visual inside the navy, cyan, and coral system. */
+.web-product-media {
+  background: #04364a url('/homepage-hero-v2.webp') center / cover no-repeat;
+}
+
 .home-hero img,
 .page-hero-visual img,
 .story-media img,
