@@ -13,7 +13,9 @@
 .blog-index .seo-cards article:hover{transform:translateY(-5px);border-color:#9dbbe5;box-shadow:0 18px 40px #0b274018}
 .blog-index .seo-cards article:first-child{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:32px;align-items:center}
 .blog-index .seo-cards article:first-child .seo-card-image{grid-row:span 4;height:300px;margin:-24px 0 -24px -24px;width:calc(100% + 24px);border-radius:0;object-fit:cover}
-.blog-index .seo-card-image{height:170px;aspect-ratio:1200 / 630;border-radius:12px;object-fit:cover;object-position:center;margin:0 0 22px;width:100%;background:#e7eef5;image-rendering:auto}
+.blog-index .seo-card-image{display:block;height:auto;aspect-ratio:1200 / 630;border-radius:12px;object-fit:contain;object-position:center;margin:0 0 22px;width:100%;background:#e7eef5;image-rendering:auto}
+.blog-index .seo-card-image-link{display:block;margin:0 0 22px}
+.blog-index .seo-card-image-link .seo-card-image{margin:0}
 .blog-index .seo-cards h3{font-size:21px;line-height:1.16;letter-spacing:-.4px;margin:0 0 12px}
 .blog-index .seo-cards p{font-size:14px;line-height:1.7;margin:0;color:#526982}
 .blog-index .seo-cards a{margin-top:auto;padding-top:24px;font-weight:700;text-decoration:none}
