@@ -1,0 +1,11 @@
+.article-featured-image {
+  border: 1px solid #d5e2ee;
+  background: #edf4fa;
+  box-shadow: 0 18px 42px #071b3114;
+}
+
+.app-cost-calculator {
+  background: #edf4fa;
+  border-color: #d5e2ee;
+  box-shadow: 0 18px 42px #071b310d;
+}

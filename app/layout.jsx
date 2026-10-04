@@ -8,6 +8,7 @@ import '../src/services-page.css';
 import '../src/reference-banners.css';
 import '../src/articles.css';
 import '../src/article-featured.css';
+import '../src/light-banner.css';
 import '../src/blog-cards.css';
 import '../src/blog-redesign.css';
 import '../src/portfolio.css';
