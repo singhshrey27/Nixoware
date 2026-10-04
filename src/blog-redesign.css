@@ -1,10 +1,10 @@
 .blog-index{background:#f7f9fb;color:#071b31}
-.blog-index .reference-hero{min-height:740px;background:#061a2c;grid-template-columns:minmax(0,44%) minmax(0,56%);text-align:left;place-items:stretch;padding:0}
+.blog-index .reference-hero{min-height:620px;background:#061a2c;grid-template-columns:minmax(0,44%) minmax(0,56%);text-align:left;place-items:stretch;padding:0}
 .blog-index .reference-hero .seo-hero-inner{padding:175px 28px 80px max(32px,calc((100vw - 1320px)/2));max-width:none;display:block;align-self:center}
 .blog-index .reference-hero h1{font-size:clamp(40px,4vw,62px);max-width:620px;letter-spacing:-2.7px}
 .blog-index .reference-hero .seo-hero-inner>p{max-width:540px;color:#c8d8e6;font-size:17px}
 .blog-index .reference-hero .seo-actions{justify-content:flex-start}
-.blog-index .reference-hero .page-hero-visual{display:block;min-height:740px;background:#061a2c}
+.blog-index .reference-hero .page-hero-visual{display:block;min-height:620px;background:#061a2c}
 .blog-index .reference-hero .page-hero-visual img{object-fit:contain;object-position:center}
 .blog-index .seo-card-section{padding-top:96px}
 .blog-index .seo-section-heading{max-width:1256px;margin-inline:auto}

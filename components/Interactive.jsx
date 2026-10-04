@@ -8,7 +8,6 @@ const navigationItems = [
   ['/case-studies', 'Case Studies'],
   ['/about', 'About'],
   ['/blog', 'Insights'],
-  ['https://wa.me/message/EQ2FP6REOCZXN1', 'WhatsApp'],
 ];
 
 export function MobileNavigation() {
