@@ -99,7 +99,7 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
 .home-hero {
   width: calc(100% - 28px);
   margin: 28px 14px 0;
-  height: clamp(560px, 46vw, 640px);
+  height: clamp(500px, 44vw, 600px);
   min-height: 0;
   display: block;
   position: relative;
@@ -113,7 +113,7 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
   z-index: 2;
   width: 45%;
   height: 100%;
-  padding: 84px 20px 40px max(32px, calc((100vw - 1320px) / 2 + 14px));
+  padding: 58px 20px 32px max(32px, calc((100vw - 1320px) / 2 + 14px));
   justify-content: center;
 }
 .home-hero .hero-media {
@@ -124,9 +124,10 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
   height: 100%;
 }
 .home-hero .hero-media > img { object-fit: cover; object-position: center center; }
-.home-hero .hero-media:after { background: linear-gradient(90deg, #04364a 0%, rgba(4, 54, 74, .94) 29%, rgba(4, 54, 74, .55) 44%, transparent 68%); }
+.home-hero .hero-media:after { background: linear-gradient(90deg, #04364a 0%, rgba(4, 54, 74, .94) 35%, rgba(4, 54, 74, .48) 48%, transparent 68%); }
 .home-hero .hero-media > img { filter: none; }
 .home-hero h1 { max-width: 560px; font-size: clamp(38px, 4vw, 56px); line-height: 1.08; letter-spacing: -2px; }
+.home-hero h1 em { color: #12dced; font-weight: 600; }
 .home-hero .hero-copy > p { max-width: 520px; font-size: 13px; line-height: 1.65; }
 .home-hero .hero-actions { margin-top: 24px; }
 .home-hero .button.coral { border-radius: 5px; min-height: 40px; padding-inline: 17px; font-size: 10px; }
@@ -136,6 +137,7 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
   .home-header { top: 18px; width: calc(100% - 24px); height: 58px; }
   .home-hero { width: calc(100% - 24px); margin: 18px 12px 0; height: 600px; }
   .home-hero .hero-copy { width: 52%; padding: 78px 20px 32px 28px; }
+  .home-header nav { top: 58px; }
 }
 
 @media (max-width: 640px) {
@@ -144,6 +146,6 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
   .home-hero .hero-copy { width: 100%; height: auto; padding: 105px 22px 350px; }
   .home-hero h1 { max-width: 430px; font-size: clamp(36px, 9vw, 46px); letter-spacing: -1.7px; }
   .home-hero .hero-copy > p { font-size: 13px; }
-  .home-hero .hero-media > img { object-position: 61% center; }
+  .home-hero .hero-media > img { object-position: 72% center; }
   .home-hero .hero-media:after { background: linear-gradient(180deg, #04364a 0%, rgba(4, 54, 74, .96) 36%, rgba(4, 54, 74, .45) 63%, transparent 82%); }
 }
