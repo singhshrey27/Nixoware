@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="130" viewBox="0 0 660 130" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">Nixoware</title>
+  <desc id="logo-description">Nixoware — Build, Innovate, Grow</desc>
+  <defs>
+    <linearGradient id="infinity-gradient" x1="8" y1="0" x2="204" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00e5f2"/>
+      <stop offset=".48" stop-color="#078cff"/>
+      <stop offset="1" stop-color="#8755ff"/>
+    </linearGradient>
+    <filter id="infinity-glow" x="-25%" y="-35%" width="150%" height="170%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="runner-glow" x="-250%" y="-250%" width="600%" height="600%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <path id="infinity-track" d="M106 65 C88 43 72 29 54 29 C30 29 14 45 14 65 C14 85 30 101 54 101 C72 101 88 87 106 65 C124 43 140 29 158 29 C182 29 198 45 198 65 C198 85 182 101 158 101 C140 101 124 87 106 65"/>
+  </defs>
+
+  <use href="#infinity-track" fill="none" stroke="url(#infinity-gradient)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" opacity=".48" filter="url(#infinity-glow)"/>
+  <use href="#infinity-track" fill="none" stroke="url(#infinity-gradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle r="8" fill="#fff" filter="url(#runner-glow)">
+    <animateMotion dur="2.8s" repeatCount="indefinite" rotate="0" calcMode="paced">
+      <mpath href="#infinity-track"/>
+    </animateMotion>
+  </circle>
+
+  <text x="238" y="73" fill="#f8fcff" font-family="Arial, Helvetica, sans-serif" font-size="57" font-weight="800" letter-spacing="2.4">NIXOWARE</text>
+  <text x="241" y="108" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" letter-spacing="4.5">
+    <tspan fill="#f0f7fb">BUILD</tspan>
+    <tspan fill="#00cdeb" letter-spacing="2">  •  </tspan>
+    <tspan fill="#f0f7fb">INNOVATE</tspan>
+    <tspan fill="#00cdeb" letter-spacing="2">  •  </tspan>
+    <tspan fill="#f0f7fb">GROW</tspan>
+  </text>
+</svg>

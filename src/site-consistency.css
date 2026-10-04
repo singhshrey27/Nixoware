@@ -19,36 +19,14 @@ body :where(button, input, select, textarea) {
 .brand strong,
 .brand small { font-family: var(--font-site); }
 
-/* Refine the text lockup; the animated infinity mark remains unchanged. */
-.brand { gap: 10px; letter-spacing: 0; }
-
-.brand .brand-copy > strong {
-  color: #f8fcff;
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: .045em;
-  font-kerning: normal;
+.brand {
+  display: block;
+  width: clamp(190px, 16vw, 224px);
+  flex: none;
+  line-height: 0;
 }
 
-.brand .brand-copy > small {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 6px;
-  color: #d8eef3;
-  font-size: 5.5px;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: .14em;
-  white-space: nowrap;
-}
-
-.brand .brand-copy > small b {
-  color: #12dced;
-  font-size: 6px;
-  font-weight: 800;
-}
+.brand-logo { display: block; width: 100%; height: auto; }
 
 .site-header,
 .site-header:not(.home-header) {
@@ -212,9 +190,6 @@ footer {
 
   .site-header,
   .site-header:not(.home-header) { padding-inline: var(--site-gutter); }
-  .brand { gap: 7px; }
+  .brand { width: min(190px, 48vw); }
   .site-header .brand-mark { width: 53px; height: 34px; }
-  .brand .brand-copy > strong { font-size: 18px; letter-spacing: .04em; }
-  .brand .brand-copy > small { gap: 4px; margin-top: 5px; font-size: 4.7px; letter-spacing: .11em; }
-  .brand .brand-copy > small b { font-size: 5px; }
 }
