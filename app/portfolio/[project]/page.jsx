@@ -49,6 +49,6 @@ export default async function PortfolioProjectPage({ params }) {
         <section className="portfolio-detail-cta"><p className="section-label">NEXT PROJECT</p><h2>Need a website that explains your value clearly?</h2><div><a className="button primary" href={project.relatedService[0]}>{project.relatedService[1]} <span aria-hidden="true">→</span></a>{project.relatedLinks.map(([label, href]) => <a className="text-link" href={href} key={href}>{label} <span aria-hidden="true">→</span></a>)}</div></section>
       </article>
     </main>
-    <footer className="seo-footer"><div><Brand footer/><p>Websites, software products, and cloud platforms engineered for meaningful progress.</p></div><nav aria-label="Explore"><h2>Explore</h2><a href="/web-development">Website development</a><a href="/ui-ux-design">UI/UX design</a><a href="/portfolio">Portfolio</a><a href="/contact">Contact</a></nav><small>© 2026 Nixoware. All rights reserved.</small></footer>
+    <footer className="seo-footer"><div><Brand footer/><p>Websites, software products, and cloud platforms engineered for meaningful progress.</p><a className="footer-email" href="mailto:nixoware@gmail.com">nixoware@gmail.com</a></div><nav aria-label="Explore"><h2>Explore</h2><a href="/web-development">Website development</a><a href="/ui-ux-design">UI/UX design</a><a href="/portfolio">Portfolio</a><a href="/contact">Contact</a></nav><small>© 2026 Nixoware. All rights reserved.</small></footer>
   </>;
 }

@@ -77,6 +77,6 @@ export default async function ArticlePage({ params }) {
         <aside className="article-cta"><p>Planning a digital project?</p><h2>Turn the next decision into a practical roadmap.</h2><a className="button primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <span aria-hidden="true">→</span></a></aside>
       </article>
     </main>
-    <footer className="seo-footer"><div><Brand footer/><p>Websites, software products, and cloud platforms engineered for meaningful progress.</p></div><nav aria-label="Explore"><h2>Explore</h2><a href="/services">Services</a><a href="/portfolio">Portfolio</a><a href="/blog">Insights</a><a href="/contact">Contact</a></nav><small>© 2026 Nixoware. All rights reserved.</small></footer>
+    <footer className="seo-footer"><div><Brand footer/><p>Websites, software products, and cloud platforms engineered for meaningful progress.</p><a className="footer-email" href="mailto:nixoware@gmail.com">nixoware@gmail.com</a></div><nav aria-label="Explore"><h2>Explore</h2><a href="/services">Services</a><a href="/portfolio">Portfolio</a><a href="/blog">Insights</a><a href="/contact">Contact</a></nav><small>© 2026 Nixoware. All rights reserved.</small></footer>
   </>;
 }

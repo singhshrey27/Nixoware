@@ -29,7 +29,7 @@ export function MobileNavigation() {
     <nav id="primary-navigation" className={open ? 'open' : ''} aria-label="Primary navigation">
       {navigationItems.map(([href, label]) => <a key={href} className={active === href ? 'active' : ''} onClick={close} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>{label}</a>)}
     </nav>
-    <button className="menu-button" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen(value => !value)}><span></span><span></span></button>
+    <button className="menu-button" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-controls="primary-navigation" aria-expanded={open} onClick={() => setOpen(value => !value)}><span></span><span></span></button>
   </>;
 }
 
