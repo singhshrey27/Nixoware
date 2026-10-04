@@ -110,11 +110,11 @@ export default function Home() {
   };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
-    <header className="site-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a></header>
-    <main>
-      <section className="hero" id="banner">
-        <div className="hero-copy"><h1>Web & mobile development<br/><em>for growing businesses.</em></h1><p>Nixoware designs, develops, and maintains high-performance websites, mobile apps, e-commerce platforms, and custom web applications for businesses across India.</p><div className="hero-actions"><a className="button coral" href="/contact">Start your project <Arrow/></a><a className="hero-secondary" href="#services">Explore our services <Arrow/></a></div></div>
-        <div className="hero-media web-product-media"><Image src="/web-development-hero.webp" alt="Illustrative website, mobile application, and dashboard designs displayed on digital devices" fill priority unoptimized sizes="(max-width: 980px) 100vw, 58vw"/></div>
+    <header className="site-header home-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a></header>
+    <main className="home-main">
+      <section className="hero home-hero" id="banner">
+        <div className="hero-copy"><h1>Web development<br/>software and<br/><em>cloud insights.</em></h1><p>Actionable guidance for planning, building, improving, and maintaining websites, online stores, mobile apps, and internal software for growing businesses.</p><div className="hero-actions"><a className="button coral" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a><a className="hero-secondary" href="#services">Explore this page <Arrow/></a></div></div>
+        <div className="hero-media web-product-media"><Image src="/homepage-hero.webp" alt="Laptop and smartphone displaying clean web and app interfaces beside an open notebook on a dark teal workspace" fill priority unoptimized sizes="(max-width: 980px) 100vw, 100vw"/></div>
       </section>
 
       <ClientShowcase/>
