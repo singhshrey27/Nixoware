@@ -15,6 +15,7 @@ import '../src/portfolio.css';
 import '../src/theme-refresh.css';
 import '../src/typography.css';
 import '../src/page-banner-theme.css';
+import '../src/site-consistency.css';
 import Script from 'next/script';
 import { Manrope } from 'next/font/google';
 
