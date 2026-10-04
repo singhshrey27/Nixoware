@@ -13,7 +13,16 @@ import '../src/blog-cards.css';
 import '../src/blog-redesign.css';
 import '../src/portfolio.css';
 import '../src/theme-refresh.css';
+import '../src/typography.css';
 import Script from 'next/script';
+import { Manrope } from 'next/font/google';
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-manrope',
+});
 
 export const metadata = {
   metadataBase: new URL('https://www.nixoware.com'),
@@ -51,7 +60,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return <html lang="en">
+  return <html lang="en" className={manrope.variable}>
     <body>{children}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-JWK5CJKD5N" strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `

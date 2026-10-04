@@ -1,0 +1,53 @@
+/* Shared typography foundation for every route. The font is self-hosted by next/font. */
+:root {
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  text-wrap: balance;
+}
+
+h1,
+h2 {
+  letter-spacing: -0.035em;
+}
+
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: inherit;
+}
