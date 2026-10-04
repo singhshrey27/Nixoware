@@ -1,0 +1,85 @@
+:root {
+  --navy: #031a29;
+  --navy2: #06283b;
+  --paper: #e8f5f6;
+  --ink: #062338;
+  --muted: #557383;
+  --blue: #197be8;
+  --coral: #10cfe2;
+  --rule: #b8dce3;
+  --dark-rule: rgba(55, 218, 235, .3);
+}
+
+body { background: #031a29; }
+.site-header { border-bottom-color: rgba(42, 212, 232, .45); }
+.site-header nav { color: #d7f3f5; }
+.site-header nav a:hover { color: #27e1ef; }
+.header-cta, .button.coral { background: #0ac8df; color: #042337; }
+.header-cta:hover, .button.coral:hover { background: #37e8f1; }
+.hero, .dark-section, footer, .seo-footer { background-color: #031a29; }
+.hero-media:after { background: linear-gradient(90deg, #031a29 0%, rgba(3, 26, 41, .45) 20%, transparent 42%); }
+.light-section, .seo-main, .article-main { background: #e8f5f6; }
+.section-label, .seo-eyebrow { color: #087d9c !important; }
+.text-link, .capability-list a, .seo-cards a, .client-visit { color: #087bc3; }
+.section-lead>p, .story-copy>p, .seo-cards p, .seo-content-grid p { color: #557383; }
+.services-refresh, .seo-card-section, .product-studio { background: #f2fbfb; }
+.services-refresh .capability-list article, .seo-content-grid article, .enquiry-panel { background: #f7ffff; border-color: #b8dce3; }
+.services-refresh .capability-list article:hover { border-color: #0ac8df; box-shadow: 0 16px 36px rgba(0, 137, 163, .14); }
+.services-refresh .capability-list article>svg { background: #d6f4f6; color: #087d9c; }
+.services-cta, .contact-connect { background: #dff2f3; }
+.services-cta .button, .studio-summary .button, .enquiry-panel .button, .contact-action-panel .button, .seo-actions .button { background: #087bc3; }
+.services-cta .button:hover, .studio-summary .button:hover, .enquiry-panel .button:hover, .contact-action-panel .button:hover, .seo-actions .button:hover { background: #056399; }
+.client-showcase, .seo-content-section { background: #dff2f3; }
+.client-project, .client-proof-note { background: #f7ffff; border-color: #b8dce3; }
+.client-marks a { background: rgba(247, 255, 255, .86); border-color: #b8dce3; }
+.client-marks span { background: #06283b; color: #48e6eb; }
+.seo-hero { background: radial-gradient(circle at 82% 22%, rgba(8, 153, 183, .55), transparent 32%), linear-gradient(130deg, #031a29, #06435a); }
+.seo-card-section { border-top: 1px solid #b8dce3; }
+.seo-cards { border-color: #b8dce3; }
+.seo-cards article { border-color: #b8dce3; }
+.seo-related { background: #06283b; }
+.article-featured-image { border-color: #8bcbd4; background: #dff2f3; }
+.app-cost-calculator { background: #dff2f3; border-color: #8bcbd4; }
+.app-cost-calculator-result, .article-cta, .studio-journey, .contact-action-panel { background: #06283b; }
+.calculator-options span { border-color: #8bcbd4; }
+.calculator-options label:hover span, .calculator-options label.selected span { background: #06283b; border-color: #06283b; }
+.story-note { background: rgba(232, 249, 250, .9); color: #06283b; }
+.contact { background: linear-gradient(120deg, #e8f5f6 55%, #dff2f3); }
+.contact-form input, .contact-form textarea { border-color: #8bcbd4; color: #06283b; }
+footer { border-top-color: rgba(55, 218, 235, .3); }
+footer, .seo-footer {
+  background: linear-gradient(135deg, #021522 0%, #06283b 58%, #031a29 100%);
+  box-shadow: inset 0 1px 0 rgba(22, 224, 239, .16);
+}
+footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
+.footer-contact a { border-color: rgba(49, 220, 235, .45); background: rgba(4, 49, 68, .5); }
+
+/* Shared teal/cyan image grade for editorial and product imagery. Brand SVGs stay untouched. */
+.hero-media > img,
+.page-hero-visual img,
+.story-media > img,
+.client-screen img,
+.seo-card-image,
+.article-featured-image img,
+.portfolio-detail-image img {
+  filter: saturate(1.08) hue-rotate(148deg) brightness(.88) contrast(1.08);
+}
+.hero-media,
+.page-hero-visual,
+.story-media,
+.client-preview,
+.article-featured-image,
+.portfolio-detail-image {
+  background: #063548;
+}
+.hero-media:after { background: linear-gradient(90deg, #031a29 0%, rgba(3, 26, 41, .55) 22%, transparent 45%); }
+.page-hero-visual:before { background: linear-gradient(90deg, #031a29 0%, rgba(3, 26, 41, .64) 12%, transparent 38%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media > img, .page-hero-visual img, .story-media > img, .client-screen img,
+  .seo-card-image, .article-featured-image img, .portfolio-detail-image img { filter: saturate(1.04) hue-rotate(148deg) brightness(.92) contrast(1.04); }
+}
+
+@media (max-width: 980px) {
+  .hero-media:after { background: linear-gradient(180deg, #031a29, transparent 28%); }
+}
