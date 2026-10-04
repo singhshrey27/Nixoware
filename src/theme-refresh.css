@@ -294,3 +294,35 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
   .site-header nav { background: #06283b; }
   .page-hero-visual:before { background: linear-gradient(180deg, #04364a 0%, rgba(4, 54, 74, .25) 24%, transparent 45%); }
 }
+
+/* Keep every raster visual inside the navy, cyan, and coral system. */
+.home-hero img,
+.page-hero-visual img,
+.story-media img,
+.client-screen img,
+.seo-card-image,
+.article-featured-image img,
+.portfolio-detail-image img {
+  filter: saturate(1.12) hue-rotate(-4deg) contrast(1.03);
+}
+
+.home-hero .web-product-media::after,
+.page-hero-visual::after,
+.story-media::after,
+.client-screen::after,
+.article-featured-image::after,
+.portfolio-detail-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(0, 224, 239, .08), transparent 42%, rgba(5, 25, 45, .2));
+  mix-blend-mode: screen;
+}
+
+.home-hero .web-product-media,
+.page-hero-visual,
+.story-media,
+.client-screen,
+.article-featured-image,
+.portfolio-detail-image { position: relative; isolation: isolate; }

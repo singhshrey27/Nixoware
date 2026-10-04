@@ -114,7 +114,7 @@ export default function Home() {
     <main className="home-main">
       <section className="hero home-hero" id="banner">
         <div className="hero-copy"><h1>Web development<br/>software and<br/><em>cloud insights.</em></h1><p>Actionable guidance for planning, building, improving, and maintaining websites, online stores, mobile apps, and internal software for growing businesses.</p><div className="hero-actions"><a className="button coral" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a><a className="hero-secondary" href="#services">Explore this page <Arrow/></a></div></div>
-        <div className="hero-media web-product-media"><Image src="/homepage-hero-v2.webp" alt="Laptop and smartphone displaying clean web and app interfaces beside an open notebook on a dark teal workspace" fill priority unoptimized sizes="(max-width: 980px) 100vw, 100vw"/></div>
+        <div className="hero-media web-product-media"><Image src="/homepage-hero-dashboard.png" alt="Laptop and smartphone displaying a cyan project dashboard with overview, projects, tasks, activity, and analytics beside an open notebook on a dark teal workspace" fill priority unoptimized sizes="(max-width: 980px) 100vw, 100vw"/></div>
       </section>
 
       <ClientShowcase/>
