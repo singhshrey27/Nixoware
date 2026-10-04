@@ -9,10 +9,10 @@ import '../src/reference-banners.css';
 import '../src/articles.css';
 import '../src/article-featured.css';
 import '../src/light-banner.css';
-import '../src/theme-refresh.css';
 import '../src/blog-cards.css';
 import '../src/blog-redesign.css';
 import '../src/portfolio.css';
+import '../src/theme-refresh.css';
 import Script from 'next/script';
 
 export const metadata = {

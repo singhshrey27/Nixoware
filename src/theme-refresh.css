@@ -58,26 +58,24 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
 .hero-media > img,
 .page-hero-visual img,
 .story-media > img,
-.client-screen img,
 .seo-card-image,
-.article-featured-image img,
-.portfolio-detail-image img {
-  filter: saturate(1.08) hue-rotate(148deg) brightness(.88) contrast(1.08);
+.article-featured-image img {
+  filter: saturate(.9) brightness(.9) contrast(1.04);
 }
 .hero-media,
 .page-hero-visual,
 .story-media,
-.client-preview,
 .article-featured-image,
-.portfolio-detail-image {
+.portfolio-detail-image,
+.client-preview {
   background: #063548;
 }
 .hero-media:after { background: linear-gradient(90deg, #031a29 0%, rgba(3, 26, 41, .55) 22%, transparent 45%); }
 .page-hero-visual:before { background: linear-gradient(90deg, #031a29 0%, rgba(3, 26, 41, .64) 12%, transparent 38%); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-media > img, .page-hero-visual img, .story-media > img, .client-screen img,
-  .seo-card-image, .article-featured-image img, .portfolio-detail-image img { filter: saturate(1.04) hue-rotate(148deg) brightness(.92) contrast(1.04); }
+  .hero-media > img, .page-hero-visual img, .story-media > img,
+  .seo-card-image, .article-featured-image img { filter: saturate(.96) brightness(.94) contrast(1.02); }
 }
 
 @media (max-width: 980px) {
@@ -149,4 +147,150 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
   .home-hero .hero-copy > p { font-size: 13px; }
   .home-hero .hero-media > img { object-fit: cover; object-position: 72% center; }
   .home-hero .hero-media:after { background: linear-gradient(180deg, #04364a 0%, rgba(4, 54, 74, .96) 36%, rgba(4, 54, 74, .45) 63%, transparent 82%); }
+}
+
+/* Apply the homepage's dark teal and cyan identity across every route. */
+:root {
+  --navy: #031a29;
+  --navy2: #06283b;
+  --paper: #e8f5f6;
+  --ink: #062338;
+  --muted: #557383;
+  --blue: #087bc3;
+  --coral: #0ac8df;
+  --rule: #b8dce3;
+  --dark-rule: rgba(55, 218, 235, .3);
+}
+
+.site-header:not(.home-header) {
+  background: rgba(3, 26, 41, .96);
+  border-bottom-color: rgba(8, 205, 228, .24);
+  box-shadow: 0 6px 22px rgba(1, 13, 26, .28);
+}
+.site-header nav a:after { background: #12dced; }
+.site-header nav a.active { color: #fff; }
+.header-cta, .button.coral, .button.primary, .seo-actions .button,
+.contact-form button, .services-cta .button, .studio-summary .button,
+.enquiry-panel .button, .contact-action-panel .button {
+  background: #0ac8df;
+  border-color: #0ac8df;
+  color: #042337;
+  box-shadow: none;
+}
+.header-cta:hover, .button.coral:hover, .button.primary:hover,
+.seo-actions .button:hover, .contact-form button:hover,
+.services-cta .button:hover, .studio-summary .button:hover,
+.enquiry-panel .button:hover, .contact-action-panel .button:hover {
+  background: #37e8f1;
+  border-color: #37e8f1;
+  color: #042337;
+}
+
+.seo-hero, .reference-hero, .blog-index .reference-hero,
+.page-image-hero, .services-hero {
+  background-color: #031a29;
+  background-image: radial-gradient(ellipse at 78% 18%, rgba(0, 174, 205, .22), transparent 38%),
+    linear-gradient(120deg, #031a29 0%, #04364a 62%, #06283b 100%);
+}
+.seo-hero h1, .reference-hero h1, .page-image-hero h1,
+.services-hero h1 { color: #f4fcff; }
+.seo-hero-inner > p:not(.seo-eyebrow), .reference-hero .seo-hero-inner > p,
+.page-image-hero .seo-hero-inner > p, .services-hero .seo-hero-inner > p:not(.seo-eyebrow) {
+  color: #c9e2e9;
+}
+.seo-eyebrow { color: #12dced !important; }
+.page-hero-visual, .page-hero-visual img { background-color: #04364a; }
+.reference-hero .page-hero-visual img,
+.blog-index .reference-hero .page-hero-visual img { object-fit: cover; object-position: right center; }
+.page-hero-visual:before { background: linear-gradient(90deg, #04364a 0%, rgba(4, 54, 74, .48) 16%, transparent 42%); }
+
+.light-section, .seo-main, .article-main, .portfolio-detail-main,
+.blog-index, .seo-card-section, .services-refresh, .product-studio,
+.client-showcase, .contact, .homepage-proof {
+  background-color: #e8f5f6;
+  color: #062338;
+}
+.seo-content-section, .services-cta, .contact-connect,
+.client-showcase, .homepage-proof { background-color: #dff2f3; }
+.seo-content-grid article, .services-refresh .capability-list article,
+.client-project, .client-proof-note, .enquiry-panel,
+.blog-index .seo-cards article, .app-cost-calculator {
+  background-color: #f7ffff;
+  border-color: #b8dce3;
+}
+.capability-list article:nth-child(n) {
+  --card-accent: #087d9c;
+  --card-tint: #e2f6f7;
+  --card-line: #b8dce3;
+  background: linear-gradient(145deg, #f1fbfc, #f7ffff 72%);
+  border-color: #b8dce3;
+  border-top-color: #12cfe2;
+}
+.capability-list article:nth-child(n):hover,
+.capability-list article:nth-child(n):focus-within { border-color: #12cfe2; }
+.capability-list article > svg { color: #087d9c; background: #e2f6f7; border-color: #b8dce3; }
+.capability-list article:hover > svg,
+.capability-list article:focus-within > svg { color: #042337; background: #12cfe2; }
+.capability-list .item-number, .capability-list article > a,
+.service-detail summary { color: #087d9c; }
+.service-detail[open] summary:after { background: #087d9c; border-color: #087d9c; }
+.seo-card-section { border-color: #b8dce3; }
+.seo-cards, .seo-cards article, .portfolio-detail-grid section,
+.portfolio-detail-hero, .portfolio-detail-cta, .article-header,
+.article-body section + section, .article-related {
+  border-color: #b8dce3;
+}
+.seo-cards h3, .seo-content-grid h2, .portfolio-detail-main h1,
+.portfolio-detail-main h2, .article-main h1, .article-main h2,
+.article-main h3 { color: #062338; }
+.seo-cards p, .seo-content-grid p, .portfolio-detail-main p,
+.portfolio-detail-list, .article-main p, .article-main li { color: #496879; }
+.section-label, .seo-section-heading .section-label,
+.client-section-heading .section-label, .client-category,
+.portfolio-detail-main .section-label { color: #087d9c !important; }
+.text-link, .seo-cards a, .seo-related a, .article-main a,
+.portfolio-detail-main a { color: #087bc3; }
+.article-header > a, .article-header > div { color: #087d9c; }
+.article-featured-image, .portfolio-detail-image, .seo-card-image,
+.client-preview, .client-screen { background-color: #dff2f3; }
+.article-featured-image, .article-featured-image img { border-color: #8bcbd4; }
+.contact-form, .contact-action-panel, .product-roadmap {
+  border-color: #b8dce3;
+}
+.contact-form input, .contact-form textarea { border-color: #8bcbd4; color: #062338; }
+.app-cost-calculator-result, .article-cta, .studio-journey,
+.seo-related, .contact-action-panel {
+  background-color: #06283b;
+  color: #f1fbff;
+}
+.seo-related h2, .article-cta h2 { color: #f4fcff; }
+.seo-related a { border-color: rgba(102, 208, 224, .34); color: #c5f8ff; }
+.seo-related a:hover { border-color: #12dced; color: #fff; }
+.article-cta > p { color: #5fe4f0; }
+.article-cta .button { color: #042337; }
+.calculator-options span { border-color: #8bcbd4; }
+.calculator-options label:hover span, .calculator-options label.selected span {
+  background: #06283b;
+  border-color: #06283b;
+}
+
+.site-footer, .seo-footer {
+  background: linear-gradient(135deg, #021522 0%, #06283b 58%, #031a29 100%);
+  border-top: 1px solid rgba(55, 218, 235, .3);
+  box-shadow: inset 0 1px 0 rgba(22, 224, 239, .12);
+  color: #c2dce4;
+}
+.site-footer .footer-links h3, .seo-footer nav h2 { color: #f4fcff; }
+.site-footer .footer-brand-column > p:not(.footer-kicker),
+.site-footer .footer-links a, .seo-footer nav a,
+.seo-footer > div > p { color: #b7d0d9; }
+.site-footer .footer-links a:hover, .seo-footer nav a:hover { color: #31e5ed; }
+.site-footer .footer-copyright, .seo-footer > small { border-color: rgba(55, 218, 235, .22); color: #9cb9c4; }
+.site-footer .social-links a { background: #0b3b50; color: #bffaff; }
+.site-footer .social-links a:hover { background: #0ac8df; color: #042337; }
+.footer-contact a { border-color: rgba(49, 220, 235, .4); background: rgba(4, 49, 68, .5); }
+
+@media (max-width: 980px) {
+  .site-header nav { background: #06283b; }
+  .page-hero-visual:before { background: linear-gradient(180deg, #04364a 0%, rgba(4, 54, 74, .25) 24%, transparent 45%); }
 }
