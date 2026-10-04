@@ -9,6 +9,10 @@ export function proxy(request) {
   const hostname = requestHost.split(',')[0].trim().split(':')[0].toLowerCase();
   const protocol = (forwardedProto || request.nextUrl.protocol).split(',')[0].trim().replace(':', '').toLowerCase();
 
+  if (process.env.NODE_ENV === 'development' && ['localhost', '127.0.0.1'].includes(hostname)) {
+    return NextResponse.next();
+  }
+
   if (hostname === canonicalHostname && protocol === 'https') {
     return NextResponse.next();
   }

@@ -87,24 +87,24 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
 /* Homepage reference composition: a contained cyan-edged dark teal banner. */
 .home-main { background: #011522; }
 .home-header {
-  top: 28px;
-  width: calc(100% - 28px);
+  top: 0;
+  width: 100%;
   max-width: none;
-  height: 58px;
-  padding: 0 16px;
-  border: 1px solid #08cde4;
-  border-bottom: 1px solid #08cde4;
-  background: rgba(3, 26, 41, .9);
+  height: 82px;
+  padding: 0 max(28px, calc((100vw - 1320px) / 2));
+  border: 0;
+  border-bottom: 1px solid rgba(8, 205, 228, .2);
+  background: linear-gradient(180deg, rgba(1, 21, 34, .96), rgba(1, 21, 34, .76));
+  backdrop-filter: blur(14px);
 }
 .home-hero {
-  width: calc(100% - 28px);
-  margin: 28px 14px 0;
+  width: 100%;
+  margin: 0;
   height: clamp(500px, 44vw, 600px);
   min-height: 0;
   display: block;
   position: relative;
-  border: 1px solid #08cde4;
-  border-top: 0;
+  border: 0;
   background: #04364a;
   overflow: hidden;
 }
@@ -123,7 +123,7 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
   min-height: 0;
   height: 100%;
 }
-.home-hero .hero-media > img { object-fit: cover; object-position: center center; }
+.home-hero .hero-media > img { object-fit: contain; object-position: right center; }
 .home-hero .hero-media:after { background: linear-gradient(90deg, #04364a 0%, rgba(4, 54, 74, .94) 35%, rgba(4, 54, 74, .48) 48%, transparent 68%); }
 .home-hero .hero-media > img { filter: none; }
 .home-hero h1 { max-width: 560px; font-size: clamp(38px, 4vw, 56px); line-height: 1.08; letter-spacing: -2px; }
@@ -134,18 +134,19 @@ footer nav a:hover, .seo-footer nav a:hover { color: #31e5ed; }
 .home-hero .hero-secondary { font-size: 10px; }
 
 @media (max-width: 980px) {
-  .home-header { top: 18px; width: calc(100% - 24px); height: 58px; }
-  .home-hero { width: calc(100% - 24px); margin: 18px 12px 0; height: 600px; }
+  .home-header { top: 0; width: 100%; height: 72px; padding-inline: 24px; }
+  .home-hero { width: 100%; margin: 0; height: 600px; }
   .home-hero .hero-copy { width: 52%; padding: 78px 20px 32px 28px; }
-  .home-header nav { top: 58px; }
+  .home-header nav { top: 72px; }
 }
 
 @media (max-width: 640px) {
-  .home-header { top: 12px; width: calc(100% - 20px); height: 56px; padding-inline: 10px; }
-  .home-hero { width: calc(100% - 20px); margin: 12px 10px 0; height: 690px; }
+  .home-header { top: 0; width: 100%; height: 68px; padding-inline: 16px; }
+  .home-header nav { top: 68px; }
+  .home-hero { width: 100%; margin: 0; height: 690px; }
   .home-hero .hero-copy { width: 100%; height: auto; padding: 105px 22px 350px; }
   .home-hero h1 { max-width: 430px; font-size: clamp(36px, 9vw, 46px); letter-spacing: -1.7px; }
   .home-hero .hero-copy > p { font-size: 13px; }
-  .home-hero .hero-media > img { object-position: 72% center; }
+  .home-hero .hero-media > img { object-fit: cover; object-position: 72% center; }
   .home-hero .hero-media:after { background: linear-gradient(180deg, #04364a 0%, rgba(4, 54, 74, .96) 36%, rgba(4, 54, 74, .45) 63%, transparent 82%); }
 }
