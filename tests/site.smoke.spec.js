@@ -28,12 +28,37 @@ test('mobile navigation opens and closes', async ({ page, isMobile }) => {
   const menuButton = page.locator('.menu-button');
   const navigation = page.locator('#primary-navigation');
   await expect(menuButton).toBeVisible();
+  await expect(menuButton.locator('span')).toHaveCount(3);
+  for (let index = 0; index < 3; index += 1) {
+    await expect(menuButton.locator('span').nth(index)).toBeVisible();
+  }
   await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
   await menuButton.evaluate(button => button.click());
   await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
   await expect(navigation).toHaveClass(/open/);
   await menuButton.evaluate(button => button.click());
   await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+});
+
+test('mobile services capability cards use compact spacing and typography', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'This layout check is specific to the mobile project.');
+  await page.goto('/services', { waitUntil: 'domcontentloaded' });
+  const card = page.locator('.seo-card-section:not(.seo-faq) .seo-cards article').first();
+  await expect(card).toBeVisible();
+  const metrics = await card.evaluate(element => ({
+    headingSize: parseFloat(getComputedStyle(element.querySelector('h3')).fontSize),
+    bodySize: parseFloat(getComputedStyle(element.querySelector('p')).fontSize),
+    height: element.getBoundingClientRect().height,
+    radius: getComputedStyle(element).borderRadius
+  }));
+  expect(metrics.headingSize).toBeLessThanOrEqual(20);
+  expect(metrics.bodySize).toBeLessThanOrEqual(15);
+  expect(metrics.height).toBeLessThan(180);
+  expect(metrics.radius).toBe('12px');
+  const menuButton = page.locator('.menu-button');
+  await menuButton.click();
+  await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('#primary-navigation')).toHaveClass(/open/);
 });
 
 test('website cost guide exposes its pricing table, FAQs, schema, and service links', async ({ page }, testInfo) => {

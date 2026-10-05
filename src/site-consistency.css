@@ -233,6 +233,54 @@ footer {
   .client-section-heading > p { grid-column: 1; grid-row: auto; }
 }
 
+/* Keep inner-page capability cards readable without oversized mobile rows. */
+@media (max-width: 760px) {
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) {
+    padding-block: 38px 28px;
+  }
+
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-section-heading {
+    margin-bottom: 20px;
+  }
+
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-section-heading h2 {
+    max-width: 560px;
+    font-size: clamp(29px, 7.2vw, 34px);
+    line-height: 1.14;
+    letter-spacing: -1.1px;
+  }
+
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-cards {
+    gap: 12px;
+    border-top: 0;
+  }
+
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-cards article,
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-cards article:nth-child(2n) {
+    min-height: 0;
+    padding: 20px;
+    border: 1px solid #b8dce3;
+    border-radius: 12px;
+  }
+
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-cards h3 {
+    margin-bottom: 8px;
+    font-size: 19px;
+    line-height: 1.3;
+  }
+
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-cards p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .seo-main:not(.blog-index) .seo-card-section:not(.seo-faq) .seo-cards article > a:not(.seo-card-image-link) {
+    margin-top: 4px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 980px) {
   :root {
     --site-gutter: 24px;
@@ -298,18 +346,8 @@ footer {
     background: currentColor;
     transition: transform .2s ease, opacity .2s ease;
   }
-  .site-header .menu-button span:first-child::after {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 2px;
-    border-radius: 2px;
-    background: currentColor;
-    transform: translateY(5px);
-    transition: opacity .2s ease;
-  }
   .site-header .menu-button[aria-expanded='true'] span:first-child { transform: translateY(3.5px) rotate(45deg); }
-  .site-header .menu-button[aria-expanded='true'] span:first-child::after { opacity: 0; }
+  .site-header .menu-button[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
   .site-header .menu-button[aria-expanded='true'] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 }
 
