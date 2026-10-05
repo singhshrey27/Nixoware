@@ -3,16 +3,16 @@
 import { useMemo, useState } from 'react';
 
 const HOURLY_RATE_USD = 20;
-const USD_TO_INR_PLANNING_RATE = 84;
+const USD_TO_INR_PLANNING_RATE = 96;
 const appTypes = [
   ['simple', 'Simple app', 30, 60],
   ['business', 'Business app', 90, 210],
-  ['ecommerce', 'E-commerce', 110, 210],
-  ['marketplace', 'Marketplace', 140, 210],
-  ['delivery', 'Delivery', 140, 210],
-  ['fintech', 'Fintech', 170, 210],
-  ['healthcare', 'Healthcare', 150, 210],
-  ['ai', 'AI app', 140, 210],
+  ['ecommerce', 'E-commerce', 160, 420],
+  ['marketplace', 'Marketplace', 240, 600],
+  ['delivery', 'Delivery', 240, 600],
+  ['fintech', 'Fintech', 300, 700],
+  ['healthcare', 'Healthcare', 280, 650],
+  ['ai', 'AI app', 250, 700],
 ];
 
 const platforms = [
@@ -48,10 +48,9 @@ export default function AppCostCalculator() {
     const minimumEstimate = (minimum * platformFactor + featureCost) * HOURLY_RATE_USD * USD_TO_INR_PLANNING_RATE / 100000;
     const maximumEstimate = (maximum * platformFactor + featureCost * 1.6) * HOURLY_RATE_USD * USD_TO_INR_PLANNING_RATE / 100000;
     const lowerLimit = appType === 'simple' ? 0.5 : 1.5;
-    const upperLimit = appType === 'simple' ? 1 : 3.5;
     return {
-      minimum: Math.min(Math.max(minimumEstimate, lowerLimit), upperLimit),
-      maximum: Math.min(Math.max(maximumEstimate, lowerLimit), upperLimit),
+      minimum: Math.max(minimumEstimate, lowerLimit),
+      maximum: Math.max(maximumEstimate, lowerLimit),
     };
   }, [appType, platform, selectedFeatures]);
 
@@ -63,7 +62,7 @@ export default function AppCostCalculator() {
     <div className="app-cost-calculator-heading">
       <p className="section-label">2026 APP DEVELOPMENT COST CALCULATOR</p>
       <h2 id="app-cost-calculator-title">Build a quick budget range for your app.</h2>
-      <p>Choose the closest project type, platforms and features. This planning estimate uses a lean <strong>${HOURLY_RATE_USD}/hour</strong> rate and is a starting range, not a fixed quotation.</p>
+      <p>Choose the closest project type, platforms and features. This illustrative estimate uses a lean <strong>${HOURLY_RATE_USD}/hour</strong> rate and ₹{USD_TO_INR_PLANNING_RATE}/USD planning conversion (reference rate reviewed 5 October 2026); it is a starting point, not a market average or fixed quotation.</p>
     </div>
     <div className="app-cost-calculator-grid">
       <div className="app-cost-calculator-controls">
@@ -74,7 +73,7 @@ export default function AppCostCalculator() {
       <aside className="app-cost-calculator-result" aria-live="polite">
         <p className="section-label">ESTIMATED DEVELOPMENT RANGE</p>
         <strong>{formatLakhs(estimate.minimum)}–{formatLakhs(estimate.maximum)}</strong>
-        <p>Indicative planning range using ${HOURLY_RATE_USD}/hour and an approximate ₹{USD_TO_INR_PLANNING_RATE}/USD conversion for India.</p>
+        <p>Indicative planning range using ${HOURLY_RATE_USD}/hour and an approximate ₹{USD_TO_INR_PLANNING_RATE}/USD conversion. Actual quotations depend on team, scope, taxes, and third-party charges.</p>
         <a className="button primary" href="https://wa.me/message/EQ2FP6REOCZXN1" target="_blank" rel="noopener noreferrer">Get a free project estimate <span aria-hidden="true">→</span></a>
       </aside>
     </div>
