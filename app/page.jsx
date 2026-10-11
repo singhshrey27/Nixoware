@@ -35,6 +35,11 @@ const steps = [
 
 function Arrow() { return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>; }
 function WhatsAppConnect() { return <a className="button primary contact-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a>; }
+const growthGuides = [
+  { title: 'Website development cost in India', text: 'A practical way to budget pages, design, content, integrations, hosting, and support.', href: '/blog/website-development-cost-india' },
+  { title: 'Mobile app development cost in India', text: 'Understand the choices that change an app budget before you request a quote.', href: '/blog/mobile-app-development-cost-guide' },
+  { title: 'Software development cost', text: 'Plan custom portals, dashboards, and internal tools around your actual workflow.', href: '/blog/software-development-cost-india' },
+];
 function CapabilityIcon({ type }) {
   if (type === 'cloud') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 25h15a6 6 0 0 0 1-12 9 9 0 0 0-17-2A7 7 0 0 0 9 25Z"/></svg>;
   if (type === 'cube') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 11 6v13l-11 7-11-7V9l11-6Zm0 0v13m11-7-11 7L5 9m11 7v13"/></svg>;
@@ -113,11 +118,17 @@ export default function Home() {
     <header className="site-header home-header" id="top"><Brand/><MobileNavigation/><a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a></header>
     <main className="home-main">
       <section className="hero home-hero" id="banner">
-        <div className="hero-copy"><h1>Web development<br/>software and<br/><em>cloud insights.</em></h1><p>Actionable guidance for planning, building, improving, and maintaining websites, online stores, mobile apps, and internal software for growing businesses.</p><div className="hero-actions"><a className="button coral" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a><a className="hero-secondary" href="#services">Explore this page <Arrow/></a></div></div>
+        <div className="hero-copy"><h1>Build a better<br/><em>digital business.</em></h1><p>Nixoware helps Indian startups and small businesses plan, build, and grow websites, mobile apps, online stores, and custom software.</p><div className="hero-actions"><a className="button coral" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Get a practical quote <Arrow/></a><a className="hero-secondary" href="#start-here">Explore cost guides <Arrow/></a></div></div>
         <div className="hero-media web-product-media"><Image src="/homepage-hero-v2.webp" alt="Laptop and smartphone displaying a cyan project dashboard with overview, projects, tasks, activity, and analytics beside an open notebook on a dark teal workspace" fill priority unoptimized sizes="(max-width: 980px) 100vw, 100vw"/></div>
       </section>
 
       <ClientShowcase/>
+
+      <section className="growth-start" id="start-here" aria-labelledby="growth-start-title">
+        <div className="growth-start-heading"><p className="section-label">START WITH CLARITY</p><h2 id="growth-start-title">Planning a digital project in India?</h2><p>Get useful answers before you commit to a build. These guides cover the questions founders and small-business teams ask first.</p></div>
+        <div className="growth-guides">{growthGuides.map((guide, index) => <a className="growth-guide" href={guide.href} key={guide.title}><span>0{index + 1}</span><h3>{guide.title}</h3><p>{guide.text}</p><strong>Read the guide <Arrow/></strong></a>)}</div>
+        <div className="growth-social"><div><strong>Follow Nixoware on Instagram</strong><span>Short tips, project lessons, and practical digital guidance for growing businesses.</span></div><a href="https://www.instagram.com/nixoware/" target="_blank" rel="noopener noreferrer">See @nixoware <Arrow/></a></div>
+      </section>
 
       <section className="homepage-proof light-section" aria-labelledby="industries-title">
         <div className="homepage-proof-heading"><p className="section-label">WHO WE SUPPORT</p><h2 id="industries-title">Digital products for teams with meaningful work to do.</h2><p>We work with growing organizations across India that need a clearer customer experience, a more capable digital channel, or a simpler way to run their operations.</p></div>
