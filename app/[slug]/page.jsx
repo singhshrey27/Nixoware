@@ -11,12 +11,13 @@ export async function generateMetadata({ params }) {
   if (!page) return {};
   const banner = pageBanners[slug];
   const images = [{ url: banner.src, alt: banner.alt }];
+  const title = page.title.replace(/\s*\|\s*Nixoware$/i, '');
   return {
-    title: page.title,
+    title,
     description: page.description,
     alternates: { canonical: `/${slug}`, languages: { 'en-IN': `/${slug}` } },
-    openGraph: { title: `${page.title} | Nixoware`, description: page.description, url: `/${slug}`, type: 'website', siteName: 'Nixoware', locale: 'en_IN', images },
-    twitter: { card: 'summary_large_image', title: `${page.title} | Nixoware`, description: page.description, images: [banner.src] }
+    openGraph: { title: `${title} | Nixoware`, description: page.description, url: `/${slug}`, type: 'website', siteName: 'Nixoware', locale: 'en_IN', images },
+    twitter: { card: 'summary_large_image', title: `${title} | Nixoware`, description: page.description, images: [banner.src] }
   };
 }
 

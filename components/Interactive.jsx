@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { trackEvent } from '../lib/analytics';
 
 const navigationItems = [
   ['/', 'Home'],
@@ -56,6 +57,7 @@ export function ContactForm() {
 
       form.reset();
       setStatus(`Enquiry received. Save this reference to view your request: ${result.enquiry.reference}`);
+      trackEvent('generate_lead', { lead_source: 'website_form', form_id: 'project_enquiry' });
     } catch (error) {
       setStatus(error.message || 'Unable to submit your enquiry. Please try again.');
     } finally {

@@ -16,7 +16,7 @@ const serviceSlugs = new Set(['web-development', 'website-maintenance', 'mobile-
 function Arrow() { return <span aria-hidden="true">→</span>; }
 
 export default function SeoPage({ page, slug }) {
-  const canonical = `https://nixoware.com/${slug}`;
+  const canonical = `https://www.nixoware.com/${slug}`;
   const banner = pageBanners[slug];
   const isService = serviceSlugs.has(slug);
   const faqs = page.faqs || (isService ? [
@@ -29,9 +29,9 @@ export default function SeoPage({ page, slug }) {
       .map(articleSlug => [articles[articleSlug].title, articles[articleSlug].description, `/blog/${articleSlug}`, articles[articleSlug].featuredImage])
     : page.cards?.map(([title, text, href]) => [title, text, href === '/contact' ? whatsappUrl : href]);
   const schema = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: page.title, description: page.description, url: canonical, inLanguage: 'en-IN', primaryImageOfPage: { '@type': 'ImageObject', url: `https://nixoware.com${banner.src}` }, isPartOf: { '@id': 'https://nixoware.com/#website' }, about: { '@id': 'https://nixoware.com/#organization' } },
-    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: page.label, item: canonical }] },
-     ...(isService ? [{ '@type': 'Service', name: page.title, serviceType: page.label, description: page.description, url: canonical, provider: { '@id': 'https://nixoware.com/#organization' }, areaServed: { '@type': 'Country', name: 'India' } }] : []),
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: page.title, description: page.description, url: canonical, inLanguage: 'en-IN', primaryImageOfPage: { '@type': 'ImageObject', url: `https://www.nixoware.com${banner.src}` }, isPartOf: { '@id': 'https://www.nixoware.com/#website' }, about: { '@id': 'https://www.nixoware.com/#organization' } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.nixoware.com/' }, { '@type': 'ListItem', position: 2, name: page.label, item: canonical }] },
+     ...(isService ? [{ '@type': 'Service', name: page.title, serviceType: page.label, description: page.description, url: canonical, provider: { '@id': 'https://www.nixoware.com/#organization' }, areaServed: { '@type': 'Country', name: 'India' } }] : []),
      ...(faqs.length ? [{ '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }] : [])
   ] };
 

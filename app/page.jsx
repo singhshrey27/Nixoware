@@ -36,9 +36,9 @@ const steps = [
 function Arrow() { return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>; }
 function WhatsAppConnect() { return <a className="button primary contact-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a>; }
 const growthGuides = [
-  { title: 'Website development cost in India', text: 'A practical way to budget pages, design, content, integrations, hosting, and support.', href: '/blog/website-development-cost-india' },
+  { title: 'Website development cost in India', text: 'A practical way to budget pages, design, content, integrations, hosting, and support.', href: '/blog/website-development-cost-in-india' },
   { title: 'Mobile app development cost in India', text: 'Understand the choices that change an app budget before you request a quote.', href: '/blog/mobile-app-development-cost-guide' },
-  { title: 'Software development cost', text: 'Plan custom portals, dashboards, and internal tools around your actual workflow.', href: '/blog/software-development-cost-india' },
+  { title: 'Software development cost', text: 'Plan custom portals, dashboards, and internal tools around your actual workflow.', href: '/blog/software-development-cost-in-india' },
 ];
 function CapabilityIcon({ type }) {
   if (type === 'cloud') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 25h15a6 6 0 0 0 1-12 9 9 0 0 0-17-2A7 7 0 0 0 9 25Z"/></svg>;
@@ -68,17 +68,17 @@ export default function Home() {
         '@id': 'https://www.nixoware.com/#professional-service',
         name: 'Nixoware Web and Mobile Development',
         url: 'https://www.nixoware.com/',
-        provider: { '@id': 'https://nixoware.com/#organization' },
+        provider: { '@id': 'https://www.nixoware.com/#organization' },
         areaServed: { '@type': 'Country', name: 'India' },
         serviceType: ['Web development', 'Mobile app development', 'E-commerce development', 'Custom web development', 'Website maintenance'],
         availableLanguage: ['English', 'Hindi']
       },
       {
         '@type': 'Organization',
-        '@id': 'https://nixoware.com/#organization',
+        '@id': 'https://www.nixoware.com/#organization',
         name: 'Nixoware',
-        url: 'https://nixoware.com/',
-        logo: 'https://nixoware.com/icon.svg',
+        url: 'https://www.nixoware.com/',
+        logo: 'https://www.nixoware.com/icon.svg',
         slogan: 'Innovation & Solutions',
         description: 'Website development, mobile app development, e-commerce, custom web applications, and ongoing website maintenance services.',
         telephone: '+91-9650429575',
@@ -90,19 +90,19 @@ export default function Home() {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://nixoware.com/#website',
-        url: 'https://nixoware.com/',
+        '@id': 'https://www.nixoware.com/#website',
+        url: 'https://www.nixoware.com/',
         name: 'Nixoware',
-        publisher: { '@id': 'https://nixoware.com/#organization' },
+        publisher: { '@id': 'https://www.nixoware.com/#organization' },
         inLanguage: 'en-IN'
       },
       {
         '@type': 'WebPage',
-        '@id': 'https://nixoware.com/#webpage',
-        url: 'https://nixoware.com/',
+        '@id': 'https://www.nixoware.com/#webpage',
+        url: 'https://www.nixoware.com/',
         name: 'Website, Mobile App & Maintenance Services | Nixoware',
-        isPartOf: { '@id': 'https://nixoware.com/#website' },
-        about: { '@id': 'https://nixoware.com/#organization' },
+        isPartOf: { '@id': 'https://www.nixoware.com/#website' },
+        about: { '@id': 'https://www.nixoware.com/#organization' },
         description: 'Nixoware builds and maintains responsive websites, mobile apps, e-commerce stores, and custom web applications for growing businesses.',
         inLanguage: 'en-IN'
       },
@@ -127,6 +127,7 @@ export default function Home() {
       <section className="growth-start" id="start-here" aria-labelledby="growth-start-title">
         <div className="growth-start-heading"><p className="section-label">START WITH CLARITY</p><h2 id="growth-start-title">Planning a digital project in India?</h2><p>Get useful answers before you commit to a build. These guides cover the questions founders and small-business teams ask first.</p></div>
         <div className="growth-guides">{growthGuides.map((guide, index) => <a className="growth-guide" href={guide.href} key={guide.title}><span>0{index + 1}</span><h3>{guide.title}</h3><p>{guide.text}</p><strong>Read the guide <Arrow/></strong></a>)}</div>
+        <div className="growth-local"><strong>Planning for a business in Balrampur?</strong><a href="/blog/website-development-in-balrampur-uttar-pradesh">Website development in Balrampur <Arrow/></a><a href="/blog/ai-agriculture-app-development-balrampur">Agriculture app planning <Arrow/></a></div>
         <div className="growth-social"><div><strong>Follow Nixoware on Instagram</strong><span>Short tips, project lessons, and practical digital guidance for growing businesses.</span></div><a href="https://www.instagram.com/nixoware/" target="_blank" rel="noopener noreferrer">See @nixoware <Arrow/></a></div>
       </section>
 

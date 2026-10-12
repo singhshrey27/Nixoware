@@ -34,8 +34,8 @@ export default async function PortfolioProjectPage({ params }) {
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Article', headline: project.title, description: project.description, mainEntityOfPage: canonical, image: `https://nixoware.com${project.image}`, author: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' }, publisher: { '@type': 'Organization', name: 'Nixoware', url: 'https://nixoware.com/' } },
-      { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nixoware.com/' }, { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://nixoware.com/portfolio' }, { '@type': 'ListItem', position: 3, name: project.title, item: canonical }] }
+      { '@type': 'Article', headline: project.title, description: project.description, mainEntityOfPage: canonical, image: `https://www.nixoware.com${project.image}`, author: { '@type': 'Organization', name: 'Nixoware', url: 'https://www.nixoware.com/' }, publisher: { '@type': 'Organization', name: 'Nixoware', url: 'https://www.nixoware.com/' } },
+      { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.nixoware.com/' }, { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://www.nixoware.com/portfolio' }, { '@type': 'ListItem', position: 3, name: project.title, item: canonical }] }
     ]
   };
   return <>
