@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { whatsappUrl } from '../../../lib/contact';
 import { notFound } from 'next/navigation';
-import Brand from '../../../components/Brand';
-import { MobileNavigation } from '../../../components/Interactive';
+import { SiteHeader, SiteFooter, SiteArrow } from '../../../components/SiteChrome';
+import ClientProof from '../../../components/ClientProof';
 import { portfolioProjects, portfolioSlugs } from '../../../lib/portfolio';
 
 export function generateStaticParams() {
@@ -40,15 +40,16 @@ export default async function PortfolioProjectPage({ params }) {
   };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
-    <header className="site-header seo-header"><Brand/><MobileNavigation/><a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <span aria-hidden="true">→</span></a></header>
+    <SiteHeader/>
     <main className="portfolio-detail-main">
       <article className="portfolio-detail">
-        <header className="portfolio-detail-hero"><p className="seo-eyebrow">NIXOWARE PORTFOLIO / {project.industry.toUpperCase()}</p><h1>{project.title}</h1><p>{project.description}</p><a className="button primary" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visit live website <span aria-hidden="true">↗</span></a></header>
+        <header className="portfolio-detail-hero"><p className="seo-eyebrow">NIXOWARE PORTFOLIO / {project.industry.toUpperCase()}</p><h1>{project.title}</h1><p>{project.description}</p><a className="button primary" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visit live website <SiteArrow/></a></header>
         <figure className="portfolio-detail-image"><Image src={project.image} alt={`${project.client} website preview`} width={1440} height={900} priority unoptimized sizes="(max-width: 900px) 100vw, 920px"/><figcaption>{project.client} website preview</figcaption></figure>
         <div className="portfolio-detail-grid"><section><p className="section-label">THE CLIENT</p><h2>{project.client}</h2><p>{project.industry}</p></section><section><p className="section-label">THE PROBLEM</p><h2>Making the right information easier to find.</h2><p>{project.problem}</p></section><section><p className="section-label">OBJECTIVES</p><h2>A focused digital foundation.</h2><List items={project.objectives}/></section><section><p className="section-label">THE SOLUTION</p><h2>From audience questions to clear journeys.</h2><p>{project.solution}</p></section><section><p className="section-label">TECHNOLOGY</p><h2>Built for clarity and ownership.</h2><p>{project.technology}</p></section><section><p className="section-label">FEATURES</p><h2>What the experience includes.</h2><List items={project.features}/></section><section><p className="section-label">DEVELOPMENT PROCESS</p><h2>Discover, structure, design, build, improve.</h2><List items={project.process}/></section><section><p className="section-label">OUTCOME</p><h2>Useful progress the organization can build on.</h2><p>{project.outcome}</p></section></div>
-        <section className="portfolio-detail-cta"><p className="section-label">NEXT PROJECT</p><h2>Need a website that explains your value clearly?</h2><div><a className="button primary" href={project.relatedService[0]}>{project.relatedService[1]} <span aria-hidden="true">→</span></a>{project.relatedLinks.map(([label, href]) => <a className="text-link" href={href} key={href}>{label} <span aria-hidden="true">→</span></a>)}</div></section>
+        <section className="portfolio-detail-cta"><p className="section-label">NEXT PROJECT</p><h2>Need a website that explains your value clearly?</h2><div><a className="button primary" href={project.relatedService[0]}>{project.relatedService[1]} <SiteArrow/></a>{project.relatedLinks.map(([label, href]) => <a className="text-link" href={href} key={href}>{label} <SiteArrow/></a>)}</div></section>
       </article>
+      <ClientProof/>
     </main>
-    <footer className="seo-footer"><div><Brand footer/><p>Websites, software products, and cloud platforms engineered for meaningful progress.</p><a className="footer-email" href="mailto:nixoware@gmail.com">nixoware@gmail.com</a></div><nav aria-label="Explore"><h2>Explore</h2><a href="/web-development">Website development</a><a href="/ui-ux-design">UI/UX design</a><a href="/portfolio">Portfolio</a><a href="/contact">Contact</a></nav><small>© 2026 Nixoware. All rights reserved.</small></footer>
+    <SiteFooter/>
   </>;
 }

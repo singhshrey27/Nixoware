@@ -18,6 +18,7 @@ import '../src/page-banner-theme.css';
 import '../src/site-consistency.css';
 import '../src/growth-content.css';
 import '../src/services-studio.css';
+import '../src/site-studio.css';
 import Script from 'next/script';
 import ConversionTracking from '../components/ConversionTracking';
 import { Manrope } from 'next/font/google';
@@ -69,7 +70,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return <html lang="en" className={manrope.variable}>
-    <body>{children}<ConversionTracking/>
+    <body className="nixoware-site">{children}<ConversionTracking/>
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-JWK5CJKD5N" strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
         window.dataLayer = window.dataLayer || [];

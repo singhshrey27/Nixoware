@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import Brand from './Brand';
-import SocialLinks from './SocialLinks';
-import { MobileNavigation } from './Interactive';
+import { SiteHeader, SiteFooter } from './SiteChrome';
+import ClientProof from './ClientProof';
 import { whatsappUrl } from '../lib/contact';
 import { serviceCatalog, serviceDeliverySteps } from '../lib/service-catalog';
 
@@ -27,18 +26,19 @@ export default function ServicesPage({ page }) {
   ] };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}/>
-    <header className="site-header seo-header services-studio-header"><Brand/><MobileNavigation/><a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a></header>
+    <SiteHeader/>
     <main className="seo-main services-studio">
       <section className="studio-hero" aria-labelledby="studio-hero-title">
         <div className="studio-hero-photo"><Image src="/banners/services.webp" alt="Illustration of a business website, work dashboard, and mobile application displayed on a laptop, monitor, and phone" fill priority sizes="(max-width: 850px) 100vw, 70vw"/></div>
         <div className="studio-container"><div className="studio-hero-copy"><h1 id="studio-hero-title">Your next idea.<span>Our next build.</span></h1><p>Websites, mobile apps, and custom software for Indian businesses. Built with clarity. Supported beyond launch.</p><div className="studio-hero-actions"><a className="studio-button" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Discuss your project</a><a className="studio-explore" href="#page-offerings">Explore services <Arrow circle/></a></div><a className="studio-work-link" href="/portfolio">See our work <Arrow/></a></div></div>
       </section>
+      <ClientProof/>
       <section className="studio-catalog" aria-labelledby="page-offerings" id="service-catalog">
         <div className="studio-container"><div className="studio-catalog-heading"><h2 id="page-offerings">The right technology. Real business value.</h2><p>Explore what we can build, improve, and support for your team.</p></div><div className="studio-service-grid">{serviceCatalog.map((service, index) => <ServiceCard key={service.href} service={service} index={index}/>)}</div></div>
       </section>
       <section className="studio-delivery" aria-labelledby="studio-delivery-title"><div className="studio-container"><div className="studio-delivery-heading"><h2 id="studio-delivery-title">A clear path from idea<br/>to launch.</h2><a href="/portfolio">See our portfolio <Arrow/></a></div><div className="studio-delivery-steps">{serviceDeliverySteps.map((step, index) => <article key={step.title}><span>{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.description}</p></article>)}</div></div></section>
       <section className="studio-conversation" aria-labelledby="studio-conversation-title"><div className="studio-container"><div><h2 id="studio-conversation-title">Have a project in mind?</h2><p>Tell us what you want to build, improve, or maintain.<br/>We will help you find a practical starting point.</p></div><div className="studio-conversation-actions"><a className="studio-button" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Connect on WhatsApp <Arrow/></a><a href="/portfolio">View portfolio <Arrow/></a></div></div></section>
     </main>
-    <footer className="studio-footer"><div className="studio-container"><div className="studio-footer-brand"><Brand footer/><p>Websites, apps, and software<br/>for growing businesses in India.</p><SocialLinks compact/></div><nav aria-label="Services"><h2>Services</h2>{serviceCatalog.map(service => <a key={service.href} href={service.href}>{service.title}</a>)}</nav><nav aria-label="Company"><h2>Company</h2><a href="/">Home</a><a href="/services">Services</a><a href="/portfolio">Portfolio</a><a href="/case-studies">Case Studies</a><a href="/about">About</a><a href="/blog">Insights</a></nav><small>© 2026 Nixoware. All rights reserved.</small></div></footer>
+    <SiteFooter/>
   </>;
 }

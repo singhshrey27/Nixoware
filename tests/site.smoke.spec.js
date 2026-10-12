@@ -33,7 +33,7 @@ test('mobile navigation opens and closes', async ({ page, isMobile }) => {
     await expect(menuButton.locator('span').nth(index)).toBeVisible();
   }
   await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
-  await menuButton.evaluate(button => button.click());
+  await menuButton.click();
   await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
   await expect(navigation).toHaveClass(/open/);
   const closeIconCenters = () => menuButton.locator('span').evaluateAll(([first, , last]) => {
@@ -44,7 +44,7 @@ test('mobile navigation opens and closes', async ({ page, isMobile }) => {
     return Math.abs(center(first) - center(last));
   });
   await expect.poll(closeIconCenters).toBeLessThan(1);
-  await menuButton.evaluate(button => button.click());
+  await menuButton.click();
   await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
 });
 

@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { trackEvent } from '../lib/analytics';
+import { serviceCatalog } from '../lib/service-catalog';
 
 const navigationItems = [
   ['/', 'Home'],
@@ -10,13 +12,16 @@ const navigationItems = [
   ['/about', 'About'],
   ['/blog', 'Insights'],
 ];
+const serviceRoutes = new Set(serviceCatalog.map(service => service.href));
 
 export function MobileNavigation() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState('');
+  const [ready, setReady] = useState(false);
+  const pathname = usePathname() || '';
+  const active = pathname.startsWith('/blog/') ? '/blog' : pathname.startsWith('/portfolio/') ? '/portfolio' : serviceRoutes.has(pathname) ? '/services' : pathname;
   const close = () => setOpen(false);
+  useEffect(() => { setReady(true); }, []);
   useEffect(() => {
-    setActive(window.location.pathname);
     const onKeyDown = event => { if (event.key === 'Escape') close(); };
     const onPointerDown = event => { if (open && !event.target.closest('.site-header')) close(); };
     document.addEventListener('keydown', onKeyDown);
@@ -28,9 +33,9 @@ export function MobileNavigation() {
   }, [open]);
   return <>
     <nav id="primary-navigation" className={open ? 'open' : ''} aria-label="Primary navigation">
-      {navigationItems.map(([href, label]) => <a key={href} className={active === href ? 'active' : ''} onClick={close} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>{label}</a>)}
+      {navigationItems.map(([href, label]) => <a key={href} className={active === href ? 'active' : ''} aria-current={active === href ? (pathname === href ? 'page' : 'location') : undefined} onClick={close} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>{label}</a>)}
     </nav>
-    <button className="menu-button" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-controls="primary-navigation" aria-expanded={open} onClick={() => setOpen(value => !value)}><span></span><span></span><span></span></button>
+    <button className="menu-button" type="button" disabled={!ready} aria-label={open ? 'Close menu' : 'Open menu'} aria-controls="primary-navigation" aria-expanded={open} onClick={() => setOpen(value => !value)}><span></span><span></span><span></span></button>
   </>;
 }
 
