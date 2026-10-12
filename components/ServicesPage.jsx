@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from './VisualImage';
 import { SiteHeader, SiteFooter } from './SiteChrome';
 import ClientProof from './ClientProof';
 import { whatsappUrl } from '../lib/contact';
@@ -11,7 +11,7 @@ function Arrow({ circle = false }) {
 function ServiceCard({ service, index }) {
   return <article className="studio-service-card">
     <a href={service.href} aria-label={`Explore ${service.title}`}>
-      <div className="studio-service-photo"><Image src={service.image} alt="" fill sizes="(max-width: 700px) 80vw, 40vw"/></div>
+      <div className="studio-service-photo"><Image src={service.image} alt="" fill sizes="(max-width: 700px) 100vw, 33vw"/></div>
       <div className="studio-service-copy"><span className="studio-service-rule" aria-hidden="true"/><span className="studio-service-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{service.title}</h3><p>{service.description}</p><span className="studio-service-link">Explore service <Arrow/></span></div>
     </a>
   </article>;
@@ -29,7 +29,7 @@ export default function ServicesPage({ page }) {
     <SiteHeader/>
     <main className="seo-main services-studio">
       <section className="studio-hero" aria-labelledby="studio-hero-title">
-        <div className="studio-hero-photo"><Image src="/banners/services.webp" alt="Illustration of a business website, work dashboard, and mobile application displayed on a laptop, monitor, and phone" fill priority sizes="(max-width: 850px) 100vw, 70vw"/></div>
+        <div className="studio-hero-photo"><Image src="/visuals/v2/services.webp" alt="Illustrative website, mobile app and software interfaces on a laptop, smartphone and tablet in a teal studio" fill priority sizes="(max-width: 850px) 100vw, 70vw"/></div>
         <div className="studio-container"><div className="studio-hero-copy"><h1 id="studio-hero-title">Your next idea.<span>Our next build.</span></h1><p>Websites, mobile apps, and custom software for Indian businesses. Built with clarity. Supported beyond launch.</p><div className="studio-hero-actions"><a className="studio-button" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Discuss your project</a><a className="studio-explore" href="#page-offerings">Explore services <Arrow circle/></a></div><a className="studio-work-link" href="/portfolio">See our work <Arrow/></a></div></div>
       </section>
       <ClientProof/>

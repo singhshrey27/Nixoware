@@ -1,0 +1,50 @@
+/* Focal points tuned for the new landscape artwork, without changing the brand. */
+.nixoware-site .home-hero .hero-media>img,
+.nixoware-site .seo-main>.reference-hero .page-hero-visual img,
+.nixoware-site .studio-hero-photo img { object-position: 68% center; }
+.nixoware-site .capability-image,
+.nixoware-site .operations-image { overflow: hidden; }
+.nixoware-site .capability-image img,
+.nixoware-site .operations-image img,
+.nixoware-site .maintenance-visual img,
+.nixoware-site .contact-panel-image img,
+.nixoware-site .approach-visual img { object-position: 65% center; }
+.nixoware-site .capability-list>article,
+.nixoware-site .seo-cards>article { transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.nixoware-site .capability-image img,
+.nixoware-site .operations-image img { transition: transform .4s ease; }
+.nixoware-site .capability-list>article:focus-within,
+.nixoware-site .seo-cards>article:focus-within { border-color: #12dced; box-shadow: 0 10px 30px #0d6e8b12; }
+.nixoware-site .seo-faq-list details[open],
+.nixoware-site .homepage-faq-list details[open] { border-color: #08c6db; background: #f4fcfd; }
+.nixoware-site .unified-footer>.studio-container>small { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }
+.nixoware-site .unified-footer .back-to-top { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 0; color: #12dced; font-size: 13px; font-weight: 700; }
+.nixoware-site .back-to-top .studio-arrow { transform: rotate(-90deg); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .nixoware-site .capability-list>article:hover .capability-image img,
+  .nixoware-site .operations-image:hover img { transform: scale(1.035); }
+}
+@media (max-width: 980px) {
+  .nixoware-site .home-hero .hero-media>img,
+  .nixoware-site .seo-main>.reference-hero .page-hero-visual img { object-position: 65% center; }
+}
+@media (max-width: 850px) {
+  .nixoware-site .studio-hero-photo img { object-position: 65% center; }
+}
+@media (max-width: 700px) {
+  /* Full-width artwork on phones: no thin, heavily cropped photo sliver. */
+  .nixoware-site .studio-service-card>a { min-height: 0; aspect-ratio: auto; }
+  .nixoware-site .studio-service-photo { position: relative; inset: auto; width: 100%; height: 190px; z-index: auto; mask-image: none; }
+  .nixoware-site .studio-service-copy { width: 100%; min-height: 250px; height: auto; padding: 24px; }
+  .nixoware-site .studio-service-copy h3,
+  .nixoware-site .studio-service-copy p { max-width: none; }
+  .nixoware-site .seo-cards>article:not(.editorial-card)>.page-card-media { position: relative; inset: auto; z-index: auto; flex: none; width: calc(100% + 52px); height: 190px; margin: -26px -26px 24px; mask-image: none; }
+  .nixoware-site .seo-cards>article:not(.editorial-card)>h3,
+  .nixoware-site .seo-cards>article:not(.editorial-card)>p { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nixoware-site .capability-list>article,
+  .nixoware-site .seo-cards>article,
+  .nixoware-site .capability-image img,
+  .nixoware-site .operations-image img { transition: none; transform: none; }
+}

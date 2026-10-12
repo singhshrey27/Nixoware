@@ -6,10 +6,10 @@ import { pageBanners } from '../lib/page-banners';
 export default function sitemap() {
   const lastModified = new Date('2026-09-26');
   return [
-    { url: 'https://www.nixoware.com/', lastModified: new Date('2026-10-12'), changeFrequency: 'weekly', priority: 1, images: ['https://www.nixoware.com/homepage-hero-v2.webp'] },
+    { url: 'https://www.nixoware.com/', lastModified: new Date('2026-10-12'), changeFrequency: 'weekly', priority: 1, images: ['https://www.nixoware.com/visuals/v2/home.webp'] },
     ...seoSlugs.map(slug => ({
       url: `https://www.nixoware.com/${slug}`,
-      lastModified: ['services', 'web-development', 'software-development'].includes(slug) ? new Date('2026-10-12') : lastModified,
+      lastModified: new Date('2026-10-12'),
       changeFrequency: slug === 'blog' ? 'weekly' : 'monthly',
       priority: ['services', 'web-development', 'software-development', 'contact'].includes(slug) ? 0.9 : 0.8,
       images: [`https://www.nixoware.com${pageBanners[slug].src}`]

@@ -61,8 +61,12 @@ test('mobile services cards keep image-led content readable', async ({ page, isM
   }));
   expect(metrics.headingSize).toBeLessThanOrEqual(22);
   expect(metrics.bodySize).toBeLessThanOrEqual(15);
-  expect(metrics.height).toBeGreaterThanOrEqual(300);
-  expect(metrics.height).toBeLessThan(380);
+  // Mobile artwork now occupies a full-width row above the readable copy.
+  expect(metrics.height).toBeGreaterThanOrEqual(400);
+  expect(metrics.height).toBeLessThan(560);
+  const imageBounds = await card.locator('img').boundingBox();
+  const titleBounds = await card.locator('h3').boundingBox();
+  expect(imageBounds.y + imageBounds.height).toBeLessThan(titleBounds.y);
   expect(metrics.radius).toBe('20px');
   const menuButton = page.locator('.menu-button');
   await menuButton.click();

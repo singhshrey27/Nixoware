@@ -1,0 +1,13 @@
+Generation method: Built-in image generation tool.
+
+Use case: ads-marketing.
+Asset type: one polished landscape 2:1 editorial cover for a Medium article by Nixoware, titled "How Much Does It Cost to Develop a Mobile App in India in 2026?"
+Create a premium, exceptionally crisp technology editorial cover in Nixoware's deep midnight navy, teal and luminous cyan palette, appealing to Indian small businesses and international founders. Scene: a refined dark studio desk, realistic premium smartphone standing beside a slim laptop at a complementary angle. The phone displays a beautifully minimal booking app with a calendar and a cyan confirmation control; the laptop displays a restrained product planning interface with a few clear phase bars. A small physical calculator and an open notebook with a simple neat wireframe sketch quietly suggest budgeting. These are carefully composed supporting objects, not clutter. Device interfaces should be believable, elegant, and largely graphical; avoid dense illegible text. Realistic materials, sharp screen edges, subtle reflections, soft directional teal lighting, tasteful cinematic depth, restrained glow, no sci-fi holograms, no exploding coins, no flags, no map, no stock-photo people.
+Composition: left 45% contains perfectly readable editorial typography over a clean deep navy background; devices occupy right 55% without being cropped. All content stays inside generous 8% safe margins so the cover works in a thumbnail and a wide article header. Whole frame feels designed as one coherent image, not a collage.
+Exact text only:
+Small upper-left brand: "NIXOWARE"
+Large left title in a refined bold modern sans-serif, white: "Mobile App"
+Next title line, white: "Development"
+Next title line, cyan: "Cost Guide"
+Small understated subtitle below: "INDIA · 2026"
+Do not put any prices, promises of low rates, extra slogans, fake logos or watermarks. Maintain clean spelling and excellent typography. Full bleed background, no border, no mock browser frame. Render one finished high-resolution cover with detailed realistic devices and beautiful professional art direction.
