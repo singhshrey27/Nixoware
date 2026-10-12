@@ -4,6 +4,7 @@ import { pageBanners } from '../lib/page-banners';
 import { articles, articleSlugs, featuredArticleSlugs } from '../lib/articles';
 import { MobileNavigation } from './Interactive';
 import { whatsappUrl } from '../lib/contact';
+import ServicesPage from './ServicesPage';
 
 const serviceLinks = [
   ['Web development', '/web-development'], ['Website maintenance', '/website-maintenance'], ['Mobile apps', '/mobile-app-development'],
@@ -16,6 +17,7 @@ const serviceSlugs = new Set(['web-development', 'website-maintenance', 'mobile-
 function Arrow() { return <span aria-hidden="true">→</span>; }
 
 export default function SeoPage({ page, slug }) {
+  if (slug === 'services') return <ServicesPage page={page}/>;
   const canonical = `https://www.nixoware.com/${slug}`;
   const banner = pageBanners[slug];
   const isService = serviceSlugs.has(slug);

@@ -9,7 +9,7 @@ export default function sitemap() {
     { url: 'https://www.nixoware.com/', lastModified: new Date('2026-10-12'), changeFrequency: 'weekly', priority: 1, images: ['https://www.nixoware.com/homepage-hero-v2.webp'] },
     ...seoSlugs.map(slug => ({
       url: `https://www.nixoware.com/${slug}`,
-      lastModified: ['web-development', 'software-development'].includes(slug) ? new Date('2026-10-12') : lastModified,
+      lastModified: ['services', 'web-development', 'software-development'].includes(slug) ? new Date('2026-10-12') : lastModified,
       changeFrequency: slug === 'blog' ? 'weekly' : 'monthly',
       priority: ['services', 'web-development', 'software-development', 'contact'].includes(slug) ? 0.9 : 0.8,
       images: [`https://www.nixoware.com${pageBanners[slug].src}`]

@@ -48,10 +48,10 @@ test('mobile navigation opens and closes', async ({ page, isMobile }) => {
   await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
 });
 
-test('mobile services capability cards use compact spacing and typography', async ({ page, isMobile }) => {
+test('mobile services cards keep image-led content readable', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'This layout check is specific to the mobile project.');
   await page.goto('/services', { waitUntil: 'domcontentloaded' });
-  const card = page.locator('.seo-card-section:not(.seo-faq) .seo-cards article').first();
+  const card = page.locator('.studio-service-card').first();
   await expect(card).toBeVisible();
   const metrics = await card.evaluate(element => ({
     headingSize: parseFloat(getComputedStyle(element.querySelector('h3')).fontSize),
@@ -59,10 +59,11 @@ test('mobile services capability cards use compact spacing and typography', asyn
     height: element.getBoundingClientRect().height,
     radius: getComputedStyle(element).borderRadius
   }));
-  expect(metrics.headingSize).toBeLessThanOrEqual(20);
+  expect(metrics.headingSize).toBeLessThanOrEqual(22);
   expect(metrics.bodySize).toBeLessThanOrEqual(15);
-  expect(metrics.height).toBeLessThan(180);
-  expect(metrics.radius).toBe('12px');
+  expect(metrics.height).toBeGreaterThanOrEqual(300);
+  expect(metrics.height).toBeLessThan(380);
+  expect(metrics.radius).toBe('20px');
   const menuButton = page.locator('.menu-button');
   await menuButton.click();
   await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
