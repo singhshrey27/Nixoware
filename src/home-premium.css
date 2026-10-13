@@ -8,6 +8,21 @@
   color: var(--home-ink);
 }
 
+.nixoware-site .home-main > section:not(.home-hero) {
+  position: relative;
+}
+.nixoware-site .home-main .section-label {
+  color: #007e92 !important;
+  font-size: 11px !important;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+.nixoware-site .home-main h2 {
+  font-size: clamp(34px, 4vw, 60px);
+  line-height: 1.04;
+}
+.nixoware-site .home-main h3 { line-height: 1.15; }
+
 .nixoware-site .home-main h1,
 .nixoware-site .home-main h2,
 .nixoware-site .home-main h3 { text-wrap: balance; }
@@ -41,8 +56,18 @@
 .nixoware-site .home-hero .hero-copy>p { max-width: 560px; margin-top: 28px; color: #c8e0e5; font-size: 17px; line-height: 1.7; }
 .nixoware-site .home-hero .hero-actions { margin-top: 36px; gap: 22px; }
 .nixoware-site .home-hero .hero-secondary { color: #d4edf0; }
+.nixoware-site .home-hero::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: max(30px, calc((100vw - 1440px) / 2));
+  right: max(30px, calc((100vw - 1440px) / 2));
+  bottom: 24px;
+  border-bottom: 1px solid rgba(184,221,228,.25);
+}
 
 .nixoware-site .home-main>.client-proof-marquee { border-bottom: 1px solid var(--home-line); }
+.nixoware-site .home-main>.client-proof-marquee { background: #fff; }
 .nixoware-site .home-main>.growth-start { background: #f7fbfb; }
 .nixoware-site .growth-start-heading h2,
 .nixoware-site .section-lead h2,
@@ -54,9 +79,13 @@
 .nixoware-site .homepage-faq-list p { color: var(--home-muted); }
 .nixoware-site .growth-guide { border: 1px solid var(--home-line); border-radius: 14px; box-shadow: 0 12px 30px rgba(6,43,58,.05); transition: transform .2s ease, box-shadow .2s ease; }
 .nixoware-site .growth-guide:hover { transform: translateY(-5px); box-shadow: 0 18px 38px rgba(6,43,58,.12); }
+.nixoware-site .growth-guides { gap: 16px; }
+.nixoware-site .growth-guide h3 { font-size: clamp(20px, 2vw, 26px); letter-spacing: -.04em; }
 .nixoware-site .growth-guide strong { color: #007e92; }
 
 .nixoware-site .home-main>.capabilities { background: #fff; }
+.nixoware-site .capabilities .section-lead { max-width: 880px; }
+.nixoware-site .capabilities .section-lead h2 { max-width: 720px; }
 .nixoware-site .capability-list article { border-radius: 14px; overflow: hidden; }
 .nixoware-site .capability-copy h3 { font-weight: 700; }
 .nixoware-site .capability-copy>a { color: #007e92; font-weight: 700; }
@@ -73,6 +102,9 @@
 .nixoware-site .homepage-faq-list summary { font-weight: 700; }
 .nixoware-site .contact-connect { background: #e8f6f8; }
 .nixoware-site .contact-action-panel { border-radius: 16px; box-shadow: 0 18px 42px rgba(6,43,58,.12); }
+.nixoware-site .contact-connect h2 { font-size: clamp(38px, 4.5vw, 68px); letter-spacing: -.06em; }
+.nixoware-site .homepage-social { background: #062b3a; color: #fff; }
+.nixoware-site .homepage-social h2 { color: #fff; }
 
 @media (max-width: 700px) {
   .nixoware-site .home-hero { min-height: 0; }
@@ -80,6 +112,8 @@
   .nixoware-site .home-hero h1 { font-size: clamp(46px, 13vw, 68px); }
   .nixoware-site .home-hero .hero-copy>p { font-size: 16px; }
   .nixoware-site .home-main .button { min-height: 50px; }
+  .nixoware-site .home-hero::before { left: 20px; right: 20px; bottom: 16px; }
+  .nixoware-site .home-main h2 { font-size: clamp(34px, 10vw, 48px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
