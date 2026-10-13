@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { SiteHeader, SiteFooter, SiteArrow } from '../../../components/SiteChrome';
-import ClientProof from '../../../components/ClientProof';
 import { articles, articleSlugs } from '../../../lib/articles';
 import AppCostCalculator from '../../../components/AppCostCalculator';
+import ClientProof from '../../../components/ClientProof';
 import Image from 'next/image';
 import { whatsappUrl } from '../../../lib/contact';
 

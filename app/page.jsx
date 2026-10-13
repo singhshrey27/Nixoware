@@ -117,8 +117,6 @@ export default function Home() {
       </section>
 
       <ClientProof/>
-      <ClientShowcase/>
-
       <section className="growth-start" id="start-here" aria-labelledby="growth-start-title">
         <div className="growth-start-heading"><p className="section-label">START WITH CLARITY</p><h2 id="growth-start-title">Planning a digital project in India?</h2><p>Get useful answers before you commit to a build. These guides cover the questions founders and small-business teams ask first.</p></div>
         <div className="growth-guides">{growthGuides.map((guide, index) => <a className="growth-guide" href={guide.href} key={guide.title}><div className="growth-guide-image"><Image src={articles[guide.href.slice(6)]?.featuredImage || '/visuals/v2/website.webp'} alt="" fill sizes="(max-width: 700px) 100vw, 33vw"/></div><span>0{index + 1}</span><h3>{guide.title}</h3><p>{guide.text}</p><strong>Read the guide <Arrow/></strong></a>)}</div>

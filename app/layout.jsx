@@ -20,6 +20,7 @@ import '../src/growth-content.css';
 import '../src/services-studio.css';
 import '../src/site-studio.css';
 import '../src/visual-polish.css';
+import '../src/home-premium.css';
 import Script from 'next/script';
 import ConversionTracking from '../components/ConversionTracking';
 import { Manrope } from 'next/font/google';

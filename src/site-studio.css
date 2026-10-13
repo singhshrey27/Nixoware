@@ -37,19 +37,19 @@
 .nixoware-site .unified-footer nav a { min-height: 30px; }
 
 /* Genuine client proof. Duplicate rails are hidden from assistive technology. */
-.client-proof-marquee { margin: 0; padding: 34px max(30px, calc((100vw - 1440px)/2)) 40px; background: #fff; color: #062b3a; overflow: hidden; }
+.client-proof-marquee { margin: 0; padding: 22px max(30px, calc((100vw - 1440px)/2)) 26px; background: #fff; color: #062b3a; overflow: hidden; }
 .proof-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
 .nixoware-site .proof-heading h2 { margin: 0; font-size: clamp(24px, 2.7vw, 40px); line-height: 1.15; }
 .proof-heading button { display: inline-flex; align-items: center; gap: 8px; flex: none; min-height: 44px; padding: 9px 16px; border: 1px solid #9bb9c8; border-radius: 30px; color: #062b3a; background: #fff; font-size: 13px; cursor: pointer; }
 .proof-heading button svg { width: 16px; height: 16px; }
 .proof-window { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent); }
 .proof-track { display: flex; width: max-content; animation: client-proof-scroll 35s linear infinite; }
-.proof-group { display: flex; flex: none; gap: 32px; padding-right: 32px; }
-.proof-project { display: flex; flex: none; align-items: center; gap: 26px; width: clamp(420px, 45vw, 690px); padding: 10px 24px 10px 0; border-right: 1px solid #c5dfe4; }
-.proof-thumbnail { display: block; flex: none; width: 220px; border-radius: 12px; overflow: hidden; background: #e8f6f8; }
+.proof-group { display: flex; flex: none; gap: 20px; padding-right: 20px; }
+.proof-project { display: flex; flex: none; align-items: center; gap: 18px; width: clamp(300px, 31vw, 440px); padding: 8px 18px 8px 0; border-right: 1px solid #c5dfe4; }
+.proof-thumbnail { display: block; flex: none; width: 160px; border-radius: 10px; overflow: hidden; background: #e8f6f8; box-shadow: 0 6px 18px rgba(6, 43, 58, .1); }
 .proof-thumbnail img { display: block; width: 100%; height: auto; aspect-ratio: 1.6; object-fit: cover; }
 .proof-project-copy { display: grid; gap: 9px; }
-.proof-project-copy strong { max-width: 250px; font-size: 25px; font-weight: 800; line-height: 1.1; letter-spacing: -.04em; }
+.proof-project-copy strong { max-width: 190px; font-size: 20px; font-weight: 800; line-height: 1.1; letter-spacing: -.04em; }
 .proof-project-copy>span { font-size: 14px; color: #496d7c; }
 .proof-project-copy .proof-view { display: flex; align-items: center; gap: 12px; margin-top: 6px; color: #007e92; }
 .proof-view svg { width: 19px; }
@@ -108,6 +108,27 @@
 .nixoware-site .homepage-proof { background: #fff; }
 .nixoware-site .homepage-proof-grid article { background: #e8f6f8; border: 0; border-radius: 16px; }
 .nixoware-site .homepage-technologies { border-color: #c5dfe4; }
+
+/* Homepage proof: compact editorial cards with a clearer visual rhythm. */
+.nixoware-site .homepage-proof { padding-block: 68px; background: linear-gradient(180deg, #f7fcfc 0%, #fff 100%); }
+.nixoware-site .homepage-proof-heading { grid-template-columns: minmax(180px, .65fr) minmax(0, 1.35fr); gap: 56px; margin-bottom: 34px; }
+.nixoware-site .homepage-proof-heading h2 { max-width: 760px; font-size: clamp(34px, 3.1vw, 48px); letter-spacing: -.045em; }
+.nixoware-site .homepage-proof-heading > p:last-child { max-width: 590px; align-self: end; font-size: 15px; line-height: 1.7; }
+.nixoware-site .homepage-proof-grid { gap: 14px; border-top: 0; }
+.nixoware-site .homepage-proof-grid article { min-height: 190px; padding: 24px 24px 22px; border: 1px solid #cce8eb; border-radius: 14px; box-shadow: 0 10px 24px rgba(6, 43, 58, .05); transition: transform .2s ease, box-shadow .2s ease; }
+.nixoware-site .homepage-proof-grid article:hover { transform: translateY(-4px); box-shadow: 0 16px 30px rgba(6, 43, 58, .1); }
+.nixoware-site .homepage-proof-grid h3 { margin: 26px 0 10px; font-size: 20px; letter-spacing: -.025em; }
+.nixoware-site .homepage-proof-grid p { max-width: 330px; margin: 0; font-size: 14px; line-height: 1.65; }
+.nixoware-site .homepage-technologies { grid-template-columns: minmax(180px, .65fr) minmax(0, 1.35fr); gap: 56px; margin-top: 54px; padding-top: 26px; }
+.nixoware-site .homepage-technologies > p:last-of-type { max-width: 700px; font-size: 15px; line-height: 1.7; }
+.nixoware-site .homepage-technologies .text-link { margin-top: 4px; font-weight: 700; }
+@media (max-width: 800px) {
+  .nixoware-site .homepage-proof { padding-block: 52px; }
+  .nixoware-site .homepage-proof-heading { gap: 20px; margin-bottom: 26px; }
+  .nixoware-site .homepage-proof-grid { gap: 10px; }
+  .nixoware-site .homepage-proof-grid article { min-height: 0; }
+  .nixoware-site .homepage-technologies { gap: 20px; margin-top: 42px; }
+}
 .nixoware-site .services-refresh { display: block; background: #fff; }
 .nixoware-site .services-refresh .section-lead { max-width: 850px; text-align: left; margin: 0 0 36px; }
 .nixoware-site .services-refresh .section-lead>p { max-width: 760px; }
@@ -151,12 +172,16 @@
 .nixoware-site .operations-columns>div { padding: 0; border: 0; background: transparent; }
 .nixoware-site .operations-columns details { border-color: #3a6d7f; }
 .nixoware-site .operations-columns p { color: #d1e7eb; }
-.nixoware-site .approach { background: #e8f6f8; color: #062b3a; grid-template-columns: 1fr; gap: 36px; }
-.nixoware-site .approach .section-lead>p { color: #496d7c; max-width: 620px; }
-.nixoware-site .approach .steps { margin: 0; gap: 36px; }
-.nixoware-site .steps article { padding-top: 20px; border-top: 1px solid #9bb9c8; }
-.nixoware-site .steps h3 { font-size: 24px; }
-.nixoware-site .steps p { color: #496d7c; }
+.nixoware-site .approach { position: relative; overflow: hidden; background: radial-gradient(circle at 88% 0%, rgba(0, 198, 214, .16), transparent 34%), #062b3a; color: #fff; grid-template-columns: 1fr; gap: 46px; }
+.nixoware-site .approach::after { content: '04'; position: absolute; right: max(30px, calc((100vw - 1440px)/2)); top: 40px; color: rgba(255,255,255,.06); font-size: clamp(120px, 19vw, 280px); font-weight: 800; line-height: .8; pointer-events: none; }
+.nixoware-site .approach .section-lead { position: relative; z-index: 1; max-width: 760px; }
+.nixoware-site .approach .section-lead h2 { font-size: clamp(42px, 5vw, 74px); letter-spacing: -.06em; }
+.nixoware-site .approach .section-lead>p { color: #b9d5dc; max-width: 620px; font-size: 16px; line-height: 1.7; }
+.nixoware-site .approach .steps { position: relative; z-index: 1; margin: 0; gap: 14px; }
+.nixoware-site .steps article { min-height: 190px; padding: 20px 20px 22px; border: 1px solid rgba(184, 221, 228, .28); border-radius: 14px; background: rgba(255,255,255,.055); transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.nixoware-site .steps article:hover { transform: translateY(-5px); background: rgba(255,255,255,.1); border-color: rgba(114, 230, 216, .65); }
+.nixoware-site .steps h3 { margin: 28px 0 10px; font-size: 20px; letter-spacing: -.025em; }
+.nixoware-site .steps p { color: #b9d5dc; font-size: 14px; line-height: 1.65; }
 .nixoware-site .step-top { color: #007e92; font-size: 16px; }
 .nixoware-site .step-top i { display: none; }
 .nixoware-site .story { background: #fff; gap: 56px; }
@@ -284,7 +309,7 @@
   .nixoware-site .capability-list, .nixoware-site .blog-index .seo-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .nixoware-site .seo-related { align-items: flex-start; flex-direction: column; }
   .nixoware-site .seo-related>div:last-child { justify-content: flex-start; }
-  .proof-thumbnail { width: 160px; }
+  .proof-thumbnail { width: 140px; }
 }
 @media (max-width: 980px) {
   .nixoware-site .site-header.unified-header { height: 82px; }
@@ -308,13 +333,13 @@
   .nixoware-site .site-header.unified-header { height: 74px; padding-inline: 20px; }
   .nixoware-site .unified-header .brand { width: 190px; }
   .nixoware-site .unified-footer>.studio-container { width: calc(100% - 40px); gap: 28px 24px; }
-  .client-proof-marquee { padding: 30px 20px; }
+  .client-proof-marquee { padding: 22px 20px; }
   .proof-heading { align-items: flex-start; gap: 16px; margin-bottom: 22px; }
   .nixoware-site .proof-heading h2 { font-size: 23px; max-width: 240px; }
   .proof-heading button { padding: 9px 12px; font-size: 12px; }
-  .proof-project { width: 310px; gap: 18px; padding-right: 20px; }
-  .proof-thumbnail { width: 120px; }
-  .proof-project-copy strong { font-size: 20px; }
+  .proof-project { width: 280px; gap: 14px; padding-right: 16px; }
+  .proof-thumbnail { width: 100px; }
+  .proof-project-copy strong { font-size: 17px; }
   .proof-project-copy>span { font-size: 12px; }
   .nixoware-site .home-hero .hero-copy, .nixoware-site .seo-hero .seo-hero-inner { padding: 42px 20px 32px; }
   .nixoware-site .home-hero h1 { font-size: clamp(42px, 10.4vw, 64px); }
